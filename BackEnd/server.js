@@ -2,11 +2,27 @@ const express = require('express');
 const app = express();
 const path = require('node:path');
 
+
+//importing controllers 
+const userController = require('./Controllers.userController')      
+
 const userRoute = require('./Routes/user-route')
+
 
 app.get('/api', (req, res) => {
     res.status(200).send("Hello from the server!");
 })
+
+// handle sign up and login functionalities 
+app.post('/singup', userController.createUser,
+  (request, response) => {
+    response.status(200).send('testing signgup function')
+  })
+
+app.post('/login', userController.loginUser,
+  (request, response) => {
+    response.status(200).send('testing login function')
+  })
 
 app.use('/api/user', userRoute)
 
