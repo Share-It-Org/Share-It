@@ -4,9 +4,18 @@ const db = require('../Models/database-model')
 const userController = {};
 
 userController.createUser = (req, res, next) => {
+    req.locals = {
+        queryData: {},
+    };
+    
+    req.locals.queryData.tableName = 'test123';
+    req.locals.queryData.username = req.body.username;
+    req.locals.queryData.password = req.body.password;
 
+    console.log(req.body);
+    console.log(req.locals);
+    //TODO: Add Error Handling
 
-    // await db.query()
+    next();
 }
-
 module.exports = userController;

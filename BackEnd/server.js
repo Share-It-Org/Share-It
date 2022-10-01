@@ -4,6 +4,9 @@ const path = require('node:path');
 
 const userRoute = require('./Routes/user-route')
 
+app.use(express.json());
+
+
 app.get('/api', (req, res) => {
     res.status(200).send("Hello from the server!");
 })
