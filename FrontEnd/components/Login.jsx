@@ -2,11 +2,11 @@
 //import everything, set up default variables, etc etc etc.
 import React, {Component} from 'react';
 
-function Login({ username }){
+function Login({ console }){
 
     return <div id='loginBox'>
         <h1>Please log in </h1>
-        <form>
+        <form onSubmit={console}>
             <label>Username:</label>
             <input type="text" id="fname" name="fname"></input>
             <br></br>

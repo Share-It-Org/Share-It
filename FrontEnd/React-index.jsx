@@ -81,6 +81,20 @@ and useEffect will be only called on these selected changes. But when it’s an 
 like this example, it will be called once on mounting. This is a perfect replacement for 
 a componentDidMount.
 
+Event handlers, per React documentation. https://reactjs.org/docs/handling-events.html
+function Form() {
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log('You clicked submit.');
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
 */
 
 
@@ -122,12 +136,17 @@ function App(){
   });
 
   //functions stuff
+  //For testing
+  function consoleLogForTesting(event){
+    event.preventDefault();
+    console.log('Your console log for testing is firing off!')
+  }
 
   
 
   //conditional display
   if(userDetails.isLoggedIn === false){         //Not logged in, do the login screen.
-    return <div id = 'screen'><Login /></div>;
+    return <div id = 'screen'><Login console={consoleLogForTesting} /></div>;
   }
   if(userDetails.noUsername === true){          //They're not a user, do the signup screen.
     return <div id = 'screen'><Signup /></div>;
