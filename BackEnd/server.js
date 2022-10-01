@@ -2,7 +2,7 @@
 //path setup
 const path = require('node:path');
 //express stuff
-//import express from 'express';            //this doesn't work. Why?
+//import express from 'express';            //this doesn't work.
 const express = require('express');
 const app = express();
 
