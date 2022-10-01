@@ -111,6 +111,7 @@ const Testing = () => {
 //Set up conditional display.  
 function App(){
   //state Stuff
+  //more to be added.
   const [userDetails, setUserStuff] = React.useState({
     firstName:"", 
     lastName:"", 
@@ -120,20 +121,19 @@ function App(){
     isUser: true,
   });
 
-
-  //More to be added
-
   //functions stuff
 
+  
+
   //conditional display
-  if(userDetails.isLoggedIn === false){
-    return <Login />;
+  if(userDetails.isLoggedIn === false){         //Not logged in, do the login screen.
+    return <div id = 'screen'><Login /></div>;
   }
-  if(userDetails.noUsername === true){
-    return <Signup />;
+  if(userDetails.noUsername === true){          //They're not a user, do the signup screen.
+    return <div id = 'screen'><Signup /></div>;
   }
-  if(userDetails.isLoggedIn === true){
-    return <UI />;
+  if(userDetails.isLoggedIn === true){          //They're logged in, do the main screen.
+    return <div id = 'screen'><UI /></div>;
   }
 };
 

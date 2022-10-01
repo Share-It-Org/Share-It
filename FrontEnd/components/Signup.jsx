@@ -4,7 +4,23 @@ import React, {Component} from 'react';
 
 function Signup(){
 
-    return <h1>Hello, Person that needs to make an account, I totally need to make a proper signup page here. </h1>;
+    return <div id='signUpBox'>
+        <h1>Please create an account</h1>
+    <form>
+        <label>Username:</label>
+        <input type="text" id="fname" name="fname"></input>
+        <br></br>
+        <label>Password:</label>
+        <input type="text" id="lname" name="lname"></input>
+        <br></br>
+        <label>Email:</label>
+        <input type="text" id="lname" name="lname"></input>
+        <br></br>
+        <input type="submit" value="Submit"></input>
+    </form>
+
+    
+</div>
   
    };
   
