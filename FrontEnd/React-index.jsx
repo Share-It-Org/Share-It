@@ -105,9 +105,9 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import './react-style.css';
 import Login from './components/Login.jsx';
-import './components/Login.jsx'
-import './components/Signup.jsx'
-import './components/Ui.jsx'
+import Signup from './components/Signup.jsx';
+import UI from './components/Ui.jsx';
+
 
 
 //testing for initial "is it working" test. Ignore this once we establish basic functionality. 
@@ -142,19 +142,78 @@ function App(){
     console.log('Your console log for testing is firing off!')
   }
 
-  
+  //go to the create user page. 
+  function goToCreateUser(event){
+    //event.preventDefault();
+    console.log('You clicked to go to the create user page')
+    //change the isUser in state to false
 
-  //conditional display
-  if(userDetails.isLoggedIn === false){         //Not logged in, do the login screen.
-    return <div id = 'screen'><Login console={consoleLogForTesting} /></div>;
+    //https://blog.logrocket.com/using-react-usestate-object/
+    setUserStuff((userDetails) => ({...userDetails,...{isUser: false}}));
+    console.log(userDetails);
   }
-  if(userDetails.noUsername === true){          //They're not a user, do the signup screen.
+
+  //sendALoginRequest     Wait for BE to finish. 
+  function sendALoginRequest(event){
+    event.preventDefault();
+    //send a fetch with username and password
+    //get the response, check for OK
+    //update state isLoggedIn if good.
+    //Stick a "username not found" if username isn't found. 
+    fetch('/?', {           //apparently no need for a hostname?
+      method: 'POST',             //Annoys me that fetch won't do a GET with stuff in the request.body. Fine. Post it is. 
+      body: JSON.stringify({username: '?' , password: '?'}),
+      headers:{
+          'Content-Type': 'application/json'
+      },
+    })
+      .then(result => result.json())
+      .then((data) => {
+        //change state appropriately
+      })
+    }
+
+    //create a user       Wait for BE to finish
+  function sendACreateUserRequest(event){
+    event.preventDefault();
+    //send a fetch with username, password, and email.
+    //get the response, check for OK
+    //update state isLoggedIn if good.
+    //Stick an error message if we get an error
+    fetch('/api/user/create', {
+      method: 'POST',
+      body: JSON.stringify({username: 'Alice' , password: 'Smith', email: 'blah@blah.com'}),
+      headers:{
+          'Content-Type': 'application/json'
+      },
+    })
+      .then(result => result.json())
+      .then((data) => {
+        //change state appropriately
+      })
+    }
+
+
+
+
+
+
+  
+  console.log('We are doing our conditional etc etc')
+  console.log('Current user details are... ', userDetails)
+  //conditional display
+  if(userDetails.isUser === false){          //They're not a user, do the signup screen.
     return <div id = 'screen'><Signup /></div>;
+  }
+  if(userDetails.isLoggedIn === false){         //Not logged in, do the login screen.
+    return <div id = 'screen'><Login console={consoleLogForTesting} goToCreateUser={goToCreateUser}/></div>;
   }
   if(userDetails.isLoggedIn === true){          //They're logged in, do the main screen.
     return <div id = 'screen'><UI /></div>;
   }
-};
+
+
+};    //end of App
 
 
 
