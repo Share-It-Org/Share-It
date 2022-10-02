@@ -8,8 +8,8 @@ const pool = new Pool({
 });
 
 module.exports = {
-  query: (text, params, callbacks) => {
-    console.log('executed query', text);
+  query: (text, params, callback) => {
+    console.log('SQL Query Executed:', text);
     return pool.query(text, params, callback);
   },
 };

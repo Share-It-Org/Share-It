@@ -1,14 +1,23 @@
 const express = require('express');
-const db = require('../Models/')
+const db = require('../Models/database-model')
 
 const userController = {};
-
-
 
 userController.createUser = (req, res, next) => {
   // get username and password from request body 
   const username = req.body.username;
   const password = req.body.password; 
+
+req.locals = {
+    queryData: {},
+};
+
+req.locals.queryData.tableName = 'users';
+req.locals.queryData.username = req.body.password;
+
+  //TODO: Add Error Handling
+
+  next();
 }
 
 
@@ -34,7 +43,5 @@ userController.loginUser = (req, res, next) => {
       next({})
     })
 }
-
-
 
 module.exports = userController;
