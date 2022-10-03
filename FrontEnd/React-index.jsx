@@ -197,12 +197,14 @@ function App(){
           'Content-Type': 'application/json'
       },
     })
-      // .then((data) => {console.log(data)};
-      //   //check that status code is 200
-      //   //if so, change state appropriately
-        
+      //check that status code is 200, change state isUser to true, isLoggedIn to true if so. 
+      .then(data => {
+        if(data.status === 200){
+          setUserDetails((userDetails) => ({...userDetails,...{isUser: true, isLoggedIn: true,}}));
+        }
 
-      // )
+      })
+
     } //end of sendACreateUserRequest
 
 
