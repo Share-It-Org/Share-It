@@ -12,7 +12,7 @@ userController.createUser = (req, res, next) => {
         queryData: {},
     };
     
-    req.locals.queryData.tableName = 'test3';
+    req.locals.queryData.tableName = 'users';
     req.locals.queryData.username = req.body.username;
 
     // req.locals.queryData.password = req.body.password;
