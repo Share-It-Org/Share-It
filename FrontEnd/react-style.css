@@ -2,8 +2,14 @@ div {
     border: 2px dotted red
 }
 
+body {
+    background-image: './Images/wallOfTools.jpg';
+    background-color: lightskyblue;
+}
+
 .centerMe {
     /* padding: 400px;     should move it down, but needs to be inside another div. Do later */
+    background-color: whitesmoke;
     margin: auto;   
     width: 30%;
     border: 5px solid black;
@@ -11,6 +17,7 @@ div {
 }
 
 #UI{
+    background-color: whitesmoke;
     display: flex;
     flex-direction: column;
 }
