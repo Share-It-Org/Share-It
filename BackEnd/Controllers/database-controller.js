@@ -56,7 +56,8 @@ EXPECTED DATA FORMAT for Req.locals.queryData:
 }
 
 databaseController.getRecords = async(req, res, next) => {
-    console.log('inside databaseController.getRecords: ', req.locals.queryData)
+    // Expected Data Format: see ../Models/QueryDataExamples/getRecordsExample.jsonc for expected format.
+
     let query = `SELECT `
 
     if(!req.locals || !req.locals.queryData) throw new Error("databaseController.getRecords: Did not include queryData in req.locals.")
