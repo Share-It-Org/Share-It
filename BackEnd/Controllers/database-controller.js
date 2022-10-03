@@ -2,6 +2,16 @@ const db = require('../Models/database-model');
 
 const databaseController = {};
 
+
+databaseController.createQueryData = (req, res, next) => {
+    req.locals = {
+        queryData: {
+
+        }
+    }
+    next();
+}
+
 databaseController.insertRecord = async (req, res, next) => {
 /*
 EXPECTED DATA FORMAT for Req.locals.queryData:
@@ -46,15 +56,13 @@ EXPECTED DATA FORMAT for Req.locals.queryData:
 }
 
 databaseController.getRecords = async(req, res, next) => {
-    console.log('inside databaseController.getRecords: ', req.locals.queryData)
+    // Expected Data Format: see ../Models/QueryDataExamples/getRecordsExample.jsonc for expected format.
     let query = `SELECT `
 
     if(!req.locals || !req.locals.queryData) throw new Error("databaseController.getRecords: Did not include queryData in req.locals.")
 
     const queryData = Object.entries(req.locals.queryData);
     const dataTypes = [];
-
-    console.log(queryData);
 
     queryData.forEach(element => {
         dataTypes.push(element[0]);
@@ -67,7 +75,7 @@ databaseController.getRecords = async(req, res, next) => {
     console.log(conditionsArray);
 
     query = query.concat(
-        ( attributesArray ? attributesArray.toString() : '*' ),
+        ( attributesArray.length > 0 ? attributesArray.toString() : '*' ),
         ' FROM ', 
         req.locals.queryData.tableName,
     )
@@ -79,9 +87,8 @@ databaseController.getRecords = async(req, res, next) => {
     query = query.slice(0,-4);
     query += ';';
     const response = await db.query(query);
-        console.log(response);
-        res.locals.response = response;
-        return next();
+    res.locals.response = response;
+    return next();
 }
 
 module.exports = databaseController;
