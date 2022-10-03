@@ -208,13 +208,13 @@ function App(){
   //console.log('Current user details are... ', userDetails)
   //conditional display
   if(userDetails.isUser === false){          //They're not a user, do the signup screen.
-    return <div id = 'screen'><Signup /></div>;
+    return <div id = 'screen'><Signup onsoleLogForTesting={consoleLogForTesting}/></div>;
   }
   if(userDetails.isLoggedIn === false){         //Not logged in, do the login screen.
-    return <div id = 'screen'><Login console={consoleLogForTesting} goToCreateUser={goToCreateUser}/></div>;
+    return <div id = 'screen'><Login consoleLogForTesting={consoleLogForTesting} goToCreateUser={goToCreateUser}/></div>;
   }
   if(userDetails.isLoggedIn === true){          //They're logged in, do the main screen.
-    return <div id = 'screen'><UI /></div>;
+    return <div id = 'screen'><UI consoleLogForTesting={consoleLogForTesting}/></div>;
   }
 
 

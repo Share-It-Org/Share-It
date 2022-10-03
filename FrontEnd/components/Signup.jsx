@@ -2,11 +2,11 @@
 //import everything, set up default variables, etc etc etc.
 import React from 'react';
 
-function Signup(){
+function Signup({consoleLogForTesting}){
 
     return <div id='signUpBox' className='centerMe'>
         <h1>Please create an account</h1>
-    <form>
+    <form onSubmit={consoleLogForTesting}>
         <label>Username:</label>
         <input type="text" id="fname" name="fname"></input>
         <br></br>

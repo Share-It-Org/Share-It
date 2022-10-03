@@ -3,9 +3,52 @@ div {
 }
 
 .centerMe {
-    padding: 400px;    
+    /* padding: 400px;     should move it down, but needs to be inside another div. Do later */
     margin: auto;   
     width: 30%;
     border: 5px solid black;
     padding: 15px;
 }
+
+#UI{
+    display: flex;
+    flex-direction: column;
+}
+
+#userAndSearchOnTop{
+    margin: 10px;
+    padding: 15px;
+    display: inline-flex;
+    border: 2px dotted green;
+}
+
+#userInformation{
+    width: 50%;
+}
+
+#thingDisplays{
+    margin: 10px;
+    padding: 15px;
+    display: inline-flex;
+    border: 2px dotted blue;
+}
+
+#myThings{
+    width: 50%;
+    padding: 15px;
+    border: 2px dotted orange;
+}
+
+/* #searchThings:hover{
+    width: 80%;
+} */
+
+#searchThings{
+    width: 50%;
+    padding: 15px;
+    border: 2px dotted green;
+}
+
+/* #searchThings:hover{
+    width: 90%;
+} */
