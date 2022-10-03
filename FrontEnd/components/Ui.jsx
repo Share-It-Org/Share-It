@@ -24,8 +24,9 @@ function UI({ username, consoleLogForTesting, userThings }){
         <div id='thingDisplays'>
             <div id='myThings'>My Things go here.
                 {/* Need a loop here to create Things using contents of userThings */}
-                <Thing></Thing>
-                <Thing></Thing>
+                {/* Should be an array of objects */}
+                
+                <Thing userThings={userThings}></Thing>
 
 
 
