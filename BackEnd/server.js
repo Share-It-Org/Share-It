@@ -3,7 +3,7 @@ const app = express();
 const path = require('node:path');
 
 //importing controllers 
-const userController = require('./userController')      
+const userController = require('./Controllers/user-controller')      
 const userRoute = require('./Routes/user-route')
 
 app.use(express.json());
