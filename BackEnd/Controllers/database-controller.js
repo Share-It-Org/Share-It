@@ -46,6 +46,7 @@ EXPECTED DATA FORMAT for Req.locals.queryData:
 }
 
 databaseController.getRecords = async(req, res, next) => {
+    console.log('inside databaseController.getRecords: ', req.locals.queryData)
     let query = `SELECT `
 
     if(!req.locals || !req.locals.queryData) throw new Error("databaseController.getRecords: Did not include queryData in req.locals.")
@@ -80,6 +81,7 @@ databaseController.getRecords = async(req, res, next) => {
     const response = await db.query(query);
         console.log(response);
         res.locals.response = response;
+        return next();
 }
 
 module.exports = databaseController;
