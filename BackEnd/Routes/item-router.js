@@ -1,6 +1,7 @@
 const express = require('express');
 const databaseController = require('../Controllers/database-controller');
 const itemController = require('../Controllers/item-controllers');
+const userController = require('../Controllers/user-controller');
 const router = express.Router();
 
 router.post(
@@ -14,14 +15,15 @@ router.post(
   }
 );
 
-router.get(
-  '/get',
-  itemController.getItems,
-  databaseController.getRecords,
-  (req, res, next) => {
+router.post('/', databaseController.createQueryData, 
+userController.getUserId, 
+databaseController.getRecords,
+itemController.getItems, 
+databaseController.getRecords, 
+(req, res, next) => {
     //Handle Create Item Response Here
-    res.status(418).send('Not Yet Implemented');
-  }
-);
+    res.status(200).send(res.locals.response.rows)
+    
+})
 
 module.exports = router;
