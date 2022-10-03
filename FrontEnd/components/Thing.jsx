@@ -1,7 +1,9 @@
-function MyThing({ consoleLogForTesting }){
+//setup stuff
+import React from 'react';
 
-    return <div id='MyThing' className='MyThing'>
-        <h1>Put Thing information here</h1>
+function Thing({ }){
+
+    return <div id='Thing' className='Thing'>
         <div>name, description, status(string), photo, owner, holder
             <div id='userThingsButtons'>
                 <button>Delete a thing</button>
@@ -9,10 +11,7 @@ function MyThing({ consoleLogForTesting }){
                 <button>Don't lend a thing</button>
             </div>
         </div>
-                    
-
-        
     </div>
 };
 
-export default MyThing;
+export default Thing;
