@@ -139,8 +139,8 @@ function App(){
     lastName:"", 
     username:"", 
     password:"",
-    isLoggedIn: true,
-    isUser: true,
+    isLoggedIn: false,
+    isUser: false,
     userThings: {},
     searchedThings: {}
   });
@@ -179,24 +179,31 @@ function App(){
     }
 
     //create a user       Wait for BE to finish
-  function sendACreateUserRequest(event){
+  function sendACreateUserRequest(event, username, password, email){
     event.preventDefault();
-    //send a fetch with username, password, and email.
-    //get the response, check for OK
-    //update state isLoggedIn if good.
-    //Stick an error message if we get an error
+    //Testing, console log username, password, email. 
+    console.log('event', event, 'username:', username, ' password:', password, ' email:', email)
+
+    // send a fetch with username, password, and email.
+    // get the response, check for OK
+    // update state isLoggedIn if good.
+    // Stick an error message if we get an error
+
+
     fetch('/api/user/create', {
       method: 'POST',
-      body: JSON.stringify({username: 'Alice' , password: 'Smith', email: 'blah@blah.com'}),
+      body: JSON.stringify({username: username , password: password, email: email}),
       headers:{
           'Content-Type': 'application/json'
       },
     })
-      .then(result => result.json())
-      .then((data) => {
-        //change state appropriately
-      })
-    }
+      // .then((data) => {console.log(data)};
+      //   //check that status code is 200
+      //   //if so, change state appropriately
+        
+
+      // )
+    } //end of sendACreateUserRequest
 
 
 
@@ -208,7 +215,7 @@ function App(){
   //console.log('Current user details are... ', userDetails)
   //conditional display
   if(userDetails.isUser === false){          //They're not a user, do the signup screen.
-    return <div id = 'screen'><Signup onsoleLogForTesting={consoleLogForTesting}/></div>;
+    return <div id = 'screen'><Signup sendACreateUserRequest={sendACreateUserRequest}/></div>;
   }
   if(userDetails.isLoggedIn === false){         //Not logged in, do the login screen.
     return <div id = 'screen'><Login consoleLogForTesting={consoleLogForTesting} goToCreateUser={goToCreateUser}/></div>;

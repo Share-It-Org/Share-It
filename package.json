@@ -21,6 +21,7 @@
   "homepage": "https://github.com/SharkGoblin/Scratch-Project#readme",
   "dependencies": {
     "babel-loader": "^8.2.5",
+    "bcrypt": "^5.0.1",
     "css-loader": "^6.7.1",
     "express": "^4.18.1",
     "pg": "^8.8.0",
