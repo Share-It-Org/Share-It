@@ -73,7 +73,7 @@ const FunctionalComponent = (props) => {
 No render method in functional components. 
 
 State is set up with
-const [count, setCount] = React.useState(0);
+const [objectName or variable, setfunction] = React.useState(variable or object key/value pairs);
 
 Replacing componentDidMount, We use the useEffect hook with the second argument of []. 
 The second argument of the useState hook is normally an array of a state(s) that changes, 
@@ -82,9 +82,12 @@ like this example, it will be called once on mounting. This is a perfect replace
 a componentDidMount.
 
 Event handlers, per React documentation. https://reactjs.org/docs/handling-events.html
+We don't need to do the error.preventDefault thing. Just NEVER call the evocation of a function in 
+the button. Use a callback form. If you need to pass variables in? Wrap it in an anonymous function.
+
 function Form() {
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault(); 
     console.log('You clicked submit.');
   }
 
@@ -137,13 +140,15 @@ function App(){
 
   //functions stuff
   //For testing
-  function consoleLogForTesting(event){
-    event.preventDefault();
+  function consoleLogForTesting(){
+  //function consoleLogForTesting(event){
+
+    //event.preventDefault();
     console.log('Your console log for testing is firing off!')
   }
 
   //go to the create user page. 
-  function goToCreateUser(event){
+  function goToCreateUser(){
     //event.preventDefault();
     console.log('You clicked to go to the create user page')
     //change the isUser in state to false
@@ -199,8 +204,8 @@ function App(){
 
 
   
-  console.log('We are doing our conditional etc etc')
-  console.log('Current user details are... ', userDetails)
+  //console.log('We are doing our conditional etc etc')
+  //console.log('Current user details are... ', userDetails)
   //conditional display
   if(userDetails.isUser === false){          //They're not a user, do the signup screen.
     return <div id = 'screen'><Signup /></div>;
