@@ -15,7 +15,7 @@ router.post(
   }
 );
 
-router.get('/', databaseController.createQueryData, 
+router.post('/', databaseController.createQueryData, 
 userController.getUserId, 
 databaseController.getRecords,
 itemController.getItems, 

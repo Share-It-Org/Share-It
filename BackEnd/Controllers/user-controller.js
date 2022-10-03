@@ -29,6 +29,7 @@ userController.createUser = (req, res, next) => {
 
 // this middleware should be BEFORE database-controller getRecords
 userController.loginUserBefore = (req, res, next) => {
+  console.log("Trying to Login");
   console.log("inside userController.loginUserBefore: ", req.body);
   req.locals = {
     queryData: {},
