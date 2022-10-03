@@ -46,10 +46,47 @@ EXPECTED DATA FORMAT for Req.locals.queryData:
 }
 
 databaseController.getRecords = async(req, res, next) => {
+<<<<<<< Updated upstream
     let query = `SELECT`
 
     (req.locals.queryData)
 
+=======
+    let query = `SELECT `
+
+    if(!req.locals || !req.locals.queryData) throw new Error("databaseController.getRecords: Did not include queryData in req.locals.")
+
+    const queryData = Object.entries(req.locals.queryData);
+    const dataTypes = [];
+
+    console.log(queryData);
+
+    queryData.forEach(element => {
+        dataTypes.push(element[0]);
+    })
+
+    const attributesArray = dataTypes.includes("attributes") ? queryData[dataTypes.indexOf("attributes")].slice(1)[0] : undefined;
+    console.log(attributesArray);
+
+    const conditionsArray = dataTypes.includes("conditions") ? queryData[dataTypes.indexOf("conditions")].slice(1)[0] : undefined;
+    console.log(conditionsArray);
+
+    query = query.concat(
+        ( attributesArray ? attributesArray.toString() : '*' ),
+        ' FROM ', 
+        req.locals.queryData.tableName,
+    )
+
+    if (conditionsArray) {
+        query += ' WHERE ';
+        conditionsArray.forEach(element => query += `${element} AND`)
+    }
+    query = query.slice(0,-4);
+    query += ';';
+    const response = await db.query(query);
+        console.log(response);
+        res.locals.response = response;
+>>>>>>> Stashed changes
 }
 
 module.exports = databaseController;
