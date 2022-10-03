@@ -12,6 +12,7 @@ EXPECTED DATA FORMAT for Req.locals.queryData:
 }
 */
 
+    if(!req.locals || !req.locals.queryData) throw new Error("databaseController.insertRecord: Did not include queryData in req.locals.")
     let query = `INSERT INTO ${req.locals.queryData.tableName} `
 
     let columns = `(`;
@@ -42,6 +43,45 @@ EXPECTED DATA FORMAT for Req.locals.queryData:
     catch (err) {
         next("databaseController.insertRecord: Insert Failed. Did Columns match the table's columns? ERROR: " + err)
     }
+}
+
+databaseController.getRecords = async(req, res, next) => {
+    // Expected Data Format: see ../Models/QueryDataExamples/getRecordsExample.jsonc for expected format.
+
+    let query = `SELECT `
+
+    if(!req.locals || !req.locals.queryData) throw new Error("databaseController.getRecords: Did not include queryData in req.locals.")
+
+    const queryData = Object.entries(req.locals.queryData);
+    const dataTypes = [];
+
+    console.log(queryData);
+
+    queryData.forEach(element => {
+        dataTypes.push(element[0]);
+    })
+
+    const attributesArray = dataTypes.includes("attributes") ? queryData[dataTypes.indexOf("attributes")].slice(1)[0] : undefined;
+    console.log(attributesArray);
+
+    const conditionsArray = dataTypes.includes("conditions") ? queryData[dataTypes.indexOf("conditions")].slice(1)[0] : undefined;
+    console.log(conditionsArray);
+
+    query = query.concat(
+        ( attributesArray ? attributesArray.toString() : '*' ),
+        ' FROM ', 
+        req.locals.queryData.tableName,
+    )
+
+    if (conditionsArray) {
+        query += ' WHERE ';
+        conditionsArray.forEach(element => query += `${element} AND`)
+    }
+    query = query.slice(0,-4);
+    query += ';';
+    const response = await db.query(query);
+        console.log(response);
+        res.locals.response = response;
 }
 
 module.exports = databaseController;

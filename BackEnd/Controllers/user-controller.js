@@ -12,19 +12,20 @@ userController.createUser = (req, res, next) => {
         queryData: {},
     };
     
-    req.locals.queryData.tableName = 'users';
-    req.locals.queryData.username = req.body.username;
-
+    
     // req.locals.queryData.password = req.body.password;
     bcrypt.hash(req.body.password, saltFactor, function(error, hash) {
+        req.locals.queryData.tableName = 'users';
+        req.locals.queryData.username = req.body.username;
         req.locals.queryData.password = hash;
+        next();
+        // console.log('inside userController.createUser')
+        // console.log(req.body);
+        // console.log(req.locals.queryData);
       })
-
-    console.log(req.body);
-    console.log(req.locals);
+    
     //TODO: Add Error Handling
 
-    next();
 }
 
 // this middleware should be chained AFTER database-controller-get user middleware
@@ -44,8 +45,6 @@ userController.loginUser = (req, res, next) => {
   });
 
 };
-
-
 
 
 module.exports = userController;

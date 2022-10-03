@@ -2,14 +2,7 @@
 //import everything, set up default variables, etc etc etc.
 import React from 'react';
 
-function handleClick(event, sendACreateUserRequest) {
-    event.preventDefault();
-    // let usernameText = document.getElementById('firstName')
-    // let passwordText = document.getElementById('password')
-    // let emailText = document.getElementById('email')
-    // console.log(usernameText);
-    // sendACreateUserRequest(usernameText, passwordText, emailText);
-}
+
 
 function Signup({sendACreateUserRequest}){
     let username = '';
