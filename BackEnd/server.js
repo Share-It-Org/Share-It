@@ -10,8 +10,8 @@ const itemRoute = require('./Routes/item-router')
 app.use(express.json());
 
 // handle sign up and login functionalities 
+app.use('/api/user/items', itemRoute);
 app.use('/api/user', userRoute);
-app.use('/api/items', itemRoute);
 
 app.get('/', 
   (err, request, response) => {
