@@ -10,6 +10,7 @@ router.post('/create', userController.createUser, databaseController.insertRecor
 })
 
 router.post('/login', (request, response) => {
+
     response.status(200).send('testing login function')
   });
 
