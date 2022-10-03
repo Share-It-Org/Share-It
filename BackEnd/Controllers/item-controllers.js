@@ -10,7 +10,7 @@ itemController.createItem = (req, res, next) => {
 
   req.locals.queryData.tableName = 'items';
   req.locals.queryData.name = req.body.name;
-  //if we need description of an item
+  //When we need to grab description of an item from the front end
   //   req.locals.queryData.description = req.body.description;
 
   console.log(req.body);
