@@ -2,6 +2,8 @@ const express = require('express');
 const db = require('../Models/database-model')
 // setting up bcrypt stuff
 const bcrypt = require('bcrypt');
+const getRecordsModel = require('../Models/get-records-model');
+const dbController = require('../Controllers/database-controller');
 const saltFactor = 10; 
 
 
@@ -11,7 +13,6 @@ userController.createUser = (req, res, next) => {
     req.locals = {
         queryData: {},
     };
-    
     
     // req.locals.queryData.password = req.body.password;
     bcrypt.hash(req.body.password, saltFactor, function(error, hash) {
@@ -23,9 +24,7 @@ userController.createUser = (req, res, next) => {
         // console.log(req.body);
         // console.log(req.locals.queryData);
       })
-    
     //TODO: Add Error Handling
-
 }
 
 // this middleware should be BEFORE database-controller getRecords
@@ -60,8 +59,19 @@ userController.loginUserAfter = (req, res, next) => {
     console.log('password did not match')
     return next({error})
   });
-
 };
+
+userController.getUserId = async (req, res, next) => {
+  const query = new getRecordsModel();
+  query.setTableName("users");
+  query.setAttributes("id");
+  query.setConditions(`username = '${req.body.username}'`)
+
+  console.log("userController.getUserId");
+
+  req.locals.queryData = query.queryData;
+  next();
+}
 
 
 module.exports = userController;
