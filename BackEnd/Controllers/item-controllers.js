@@ -7,4 +7,8 @@ itemController.createItem = (req, res, next) => {
     
 };
 
+itemController.getItems = (req, res, next) => {
+    
+}
+
 module.exports = itemController;
