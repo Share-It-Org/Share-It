@@ -4,7 +4,24 @@ import React from 'react';
 import Thing from './Thing.jsx';
 
 
+//const fakeUserThings = [ { "id": 2, "name": "lawnmower", "description": "a very tiny lawnmower", "status": null, "photo": null, "owner": 15, "holder": null }, { "id": 5, "name": "weedwacker", "description": "an unreasonably large weedwacker", "status": null, "photo": null, "owner": 15, "holder": null } ];
+
+
+
 function UI({ username, consoleLogForTesting, userThings }){
+
+    let thingsToDisplay = [];
+    for(let thingIndex = 0; thingIndex < userThings.length; thingIndex++){
+        //make a Thing for each Thing.
+        const name = userThings[thingIndex].name;
+        const description = userThings[thingIndex].description;
+        const status = userThings[thingIndex].status;
+        const holder = userThings[thingIndex].holder;
+
+
+        thingsToDisplay.push(<Thing name={name} description={description} status={status} holder={holder} />)
+        console.log('Things?', thingsToDisplay);
+    }
 
     return     <div id='UI'> 
         
@@ -24,9 +41,9 @@ function UI({ username, consoleLogForTesting, userThings }){
         <div id='thingDisplays'>
             <div id='myThings'>My Things go here.
                 {/* Need a loop here to create Things using contents of userThings */}
-                <Thing></Thing>
-                <Thing></Thing>
-
+                {/* Should be an array of objects */}
+                
+                {[thingsToDisplay]}
 
 
             

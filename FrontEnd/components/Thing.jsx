@@ -1,10 +1,10 @@
 //setup stuff
 import React from 'react';
 
-function Thing({ }){
+function Thing({ name, description, status, holder }){
 
     return <div id='Thing' className='Thing'>
-        <div>name, description, status(string), photo, owner, holder
+        <div>{name}, {description}, {status}, {holder}
             <div id='userThingsButtons'>
                 <button>Delete a thing</button>
                 <button>Lend a thing</button>
