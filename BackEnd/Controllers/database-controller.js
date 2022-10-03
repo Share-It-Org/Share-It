@@ -12,6 +12,7 @@ EXPECTED DATA FORMAT for Req.locals.queryData:
 }
 */
 
+    if(!req.locals || !req.locals.queryData) throw new Error("databaseController.insertRecord: Did not include queryData in req.locals.")
     let query = `INSERT INTO ${req.locals.queryData.tableName} `
 
     let columns = `(`;
@@ -42,6 +43,13 @@ EXPECTED DATA FORMAT for Req.locals.queryData:
     catch (err) {
         next("databaseController.insertRecord: Insert Failed. Did Columns match the table's columns? ERROR: " + err)
     }
+}
+
+databaseController.getRecords = async(req, res, next) => {
+    let query = `SELECT`
+
+    (req.locals.queryData)
+
 }
 
 module.exports = databaseController;
