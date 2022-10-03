@@ -1,0 +1,11 @@
+div {
+    border: 2px dotted red
+}
+
+.centerMe {
+    padding: 400px;    
+    margin: auto;   
+    width: 30%;
+    border: 5px solid black;
+    padding: 15px;
+}

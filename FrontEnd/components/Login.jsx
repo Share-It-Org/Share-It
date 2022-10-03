@@ -1,10 +1,10 @@
 //setup stuff
 //import everything, set up default variables, etc etc etc.
-import React, {Component} from 'react';
+import React from 'react';
 
 function Login({ console, goToCreateUser }){
 
-    return <div id='loginBox'>
+    return <div id='loginBox' className='centerMe'>
         <h1>Please log in </h1>
         <form onSubmit={console}>
             <label>Username:</label>

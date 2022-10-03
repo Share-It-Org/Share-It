@@ -84,6 +84,9 @@ a componentDidMount.
 Event handlers, per React documentation. https://reactjs.org/docs/handling-events.html
 We don't need to do the error.preventDefault thing. Just NEVER call the evocation of a function in 
 the button. Use a callback form. If you need to pass variables in? Wrap it in an anonymous function.
+We are setting state as per... //https://blog.logrocket.com/using-react-usestate-object/
+setUserDetails((userDetails) => ({...userDetails,...{isUser: false}}));
+
 
 function Form() {
   function handleSubmit(e) {
@@ -98,13 +101,15 @@ function Form() {
   );
 }
 
+
+
 */
 
 
 
 //setup stuff
 //import everything, set up default variables, etc etc etc.
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './react-style.css';
 import Login from './components/Login.jsx';
@@ -129,33 +134,28 @@ const Testing = () => {
 function App(){
   //state Stuff
   //more to be added.
-  const [userDetails, setUserStuff] = React.useState({
+  const [userDetails, setUserDetails] = React.useState({
     firstName:"", 
     lastName:"", 
     username:"", 
     password:"",
-    isLoggedIn: false,
+    isLoggedIn: true,
     isUser: true,
+    userThings: {},
+    searchedThings: {}
   });
 
   //functions stuff
   //For testing
   function consoleLogForTesting(){
-  //function consoleLogForTesting(event){
-
-    //event.preventDefault();
     console.log('Your console log for testing is firing off!')
   }
 
   //go to the create user page. 
   function goToCreateUser(){
-    //event.preventDefault();
     console.log('You clicked to go to the create user page')
     //change the isUser in state to false
-
-    //https://blog.logrocket.com/using-react-usestate-object/
-    setUserStuff((userDetails) => ({...userDetails,...{isUser: false}}));
-    console.log(userDetails);
+    setUserDetails((userDetails) => ({...userDetails,...{isUser: false}}));
   }
 
   //sendALoginRequest     Wait for BE to finish. 

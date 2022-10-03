@@ -1,10 +1,10 @@
 //setup stuff
 //import everything, set up default variables, etc etc etc.
-import React, {Component} from 'react';
+import React from 'react';
 
 function Signup(){
 
-    return <div id='signUpBox'>
+    return <div id='signUpBox' className='centerMe'>
         <h1>Please create an account</h1>
     <form>
         <label>Username:</label>
