@@ -9,8 +9,9 @@ router.post('/create', userController.createUser, databaseController.insertRecor
     res.sendStatus(200);
 })
 
-router.post('/login', userController.loginUser, databaseController.getRecords, (request, response) => {
-    response.status(200).send('testing login function')
+router.post('/login', userController.loginUserBefore, databaseController.getRecords, userController.loginUserAfter, (request, response) => {
+    console.log('inside user-route /login : ')
+    response.status(200).send('testing login function successful')
   });
 
 router.post('/signup', )
