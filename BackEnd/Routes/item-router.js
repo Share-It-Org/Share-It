@@ -10,7 +10,7 @@ router.post(
   (req, res, next) => {
     //Handle Create Item Response Here
     console.log(`item ${res.locals.result} was created succesfully`);
-    res.status(418).send(res.locals.result);
+    res.status(200).send(res.locals.result);
   }
 );
 
