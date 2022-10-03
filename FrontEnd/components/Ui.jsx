@@ -4,6 +4,10 @@ import React from 'react';
 import Thing from './Thing.jsx';
 
 
+const fakeUserThings = [ { "id": 2, "name": "lawnmower", "description": "a very tiny lawnmower", "status": null, "photo": null, "owner": 15, "holder": null }, { "id": 5, "name": "weedwacker", "description": "an unreasonably large weedwacker", "status": null, "photo": null, "owner": 15, "holder": null } ];
+
+
+
 function UI({ username, consoleLogForTesting, userThings }){
 
     return     <div id='UI'> 

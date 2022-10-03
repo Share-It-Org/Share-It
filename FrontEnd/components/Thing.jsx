@@ -1,6 +1,8 @@
 //setup stuff
 import React from 'react';
 
+
+
 function Thing({ }){
 
     return <div id='Thing' className='Thing'>
