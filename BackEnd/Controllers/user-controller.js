@@ -46,6 +46,4 @@ userController.loginUser = (req, res, next) => {
 };
 
 
-
-
 module.exports = userController;
