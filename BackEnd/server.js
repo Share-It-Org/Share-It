@@ -17,6 +17,7 @@ app.get('/api', (req, res) => {
     res.status(200).send("Hello from the server!");
 })
 
+// handle sign up and login functionalities 
 app.use('/api/user', userRoute)
 
 //test response for initial functionality.

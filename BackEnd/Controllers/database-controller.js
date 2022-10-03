@@ -3,8 +3,15 @@ const db = require('../Models/database-model');
 const databaseController = {};
 
 databaseController.insertRecord = async (req, res, next) => {
-    console.log('Insert Records Query Data');
-    console.log(req.locals.queryData);
+/*
+EXPECTED DATA FORMAT for Req.locals.queryData:
+{
+    [column1Name]: [value],
+    [column2Name]: [value],
+    etc...
+}
+*/
+
     let query = `INSERT INTO ${req.locals.queryData.tableName} `
 
     let columns = `(`;
