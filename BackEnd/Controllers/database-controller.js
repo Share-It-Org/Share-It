@@ -46,7 +46,7 @@ EXPECTED DATA FORMAT for Req.locals.queryData:
 }
 
 databaseController.getRecords = async(req, res, next) => {
-    // Expected Data Format: 
+    // Expected Data Format: see ../Models/QueryDataExamples/getRecordsExample.jsonc for expected format.
 
     let query = `SELECT `
 
