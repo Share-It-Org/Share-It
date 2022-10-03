@@ -3,22 +3,22 @@ const db = require('../Models/database-model');
 
 const itemController = {};
 
+//middleware for creating an item in the database
 itemController.createItem = (req, res, next) => {
   req.locals = {
     queryData: {},
   };
 
-  req.locals.queryData.tableName = 'item';
+  console.log(req.locals);
+  req.locals.queryData.tableName = 'items';
   req.locals.queryData.name = req.body.name;
-  //if we need description of an item
-//   req.locals.queryData.description = req.body.description;
+  //When we need to grab description of an item from the front end
+  req.locals.queryData.description = req.body.description;
 
   console.log(req.body);
-  next();
+  return next();
 };
 
-itemController.getItems = (req, res, next) => {
-    
-}
+itemController.getItems = (req, res, next) => {};
 
 module.exports = itemController;
