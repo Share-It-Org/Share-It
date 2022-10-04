@@ -8,7 +8,10 @@ import Thing from './Thing.jsx';
 
 
 
-function UI({ username, consoleLogForTesting, userThings }){
+function UI({ username, consoleLogForTesting, userThings, getUserDetails }){
+
+    // //I need to get the user details when this 
+    // getUserDetails(username);
 
     let thingsToDisplay = [];
     for(let thingIndex = 0; thingIndex < userThings.length; thingIndex++){

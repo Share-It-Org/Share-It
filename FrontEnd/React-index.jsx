@@ -211,6 +211,8 @@ function App(){
 
     } //end of sendACreateUserRequest
 
+
+
     function getUserDetails(event, username){
       event.preventDefault();
   
@@ -250,7 +252,8 @@ function App(){
     return <div id = 'screen'><Login sendALoginRequest={sendALoginRequest} goToCreateUser={goToCreateUser}/></div>;
   }
   if(userDetails.isLoggedIn === true && userDetails.isUser === true){          //They're logged in, do the main screen.
-    return <div id = 'screen'><UI consoleLogForTesting={consoleLogForTesting} username={userDetails.username} userThings={userDetails.userThings}/></div>;
+    getUserDetails(userDetails.username);
+    return <div id = 'screen'><UI consoleLogForTesting={consoleLogForTesting} username={userDetails.username} userThings={userDetails.userThings} /></div>;
   }
 
 
