@@ -49,6 +49,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "nodemon": "^2.0.20",
+    "regenerator-runtime": "^0.13.9",
     "sass": "^1.55.0",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
