@@ -4,9 +4,9 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "concurrently \"webpack-dev-server --mode development --hot --progress --color\" \"nodemon BackEnd/server.js\"",
+    "start": "concurrently \"webpack-dev-server --mode development --progress --color\" \"nodemon BackEnd/server.js\"",
     "server": "nodemon BackEnd/server.js",
-    "client": "webpack-dev-server --mode development --hot --progress --color",
+    "client": "webpack-dev-server --mode development --progress --color",
     "build": "webpack --mode production"
   },
   "repository": {

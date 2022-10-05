@@ -2,7 +2,7 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './FrontEnd/src/main.jsx',
+  entry: './FrontEnd/react-index.jsx',
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
@@ -13,10 +13,10 @@ module.exports = {
     host: 'localhost',
     port: 8080,
     open: true,
-    hot: true,
-    proxy: {
-      '/api': 'http://localhost:3000',
-    },
+    // hot: true,
+    // proxy: {
+    //   '/api': 'http://localhost:3000',
+    // },
     static: {
       directory: path.join(__dirname, 'dist'),
       publicPath: '/dist',
