@@ -13,10 +13,10 @@ module.exports = {
     host: 'localhost',
     port: 8080,
     open: true,
-    // hot: true,
-    // proxy: {
-    //   '/api': 'http://localhost:3000',
-    // },
+    hot: true,
+    proxy: {
+      '/api': 'http://localhost:3000',
+    },
     static: {
       directory: path.join(__dirname, 'dist'),
       publicPath: '/dist',
