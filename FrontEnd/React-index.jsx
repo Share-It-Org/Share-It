@@ -141,8 +141,8 @@ function App(){
     password:"",
     isLoggedIn: false,
     isUser: true,
-    userThings: {},
-    searchedThings: {}
+    userThings: [],
+    searchedThings: []
   });
 
   //functions stuff
@@ -178,7 +178,7 @@ function App(){
       .then(data => {
         console.log('What is the response code?', data.status)
         if(data.status === 200){
-          setUserDetails((userDetails) => ({...userDetails,...{isUser: true, isLoggedIn: true,}}));
+          setUserDetails((userDetails) => ({...userDetails,...{isUser: true, isLoggedIn: true, username: username}}));
         }
 
       })
@@ -194,7 +194,6 @@ function App(){
     // update state isLoggedIn if good.
     // Stick an error message if we get an error
 
-
     fetch('/api/user/create', {
       method: 'POST',
       body: JSON.stringify({username: username , password: password, email: email}),
@@ -205,7 +204,7 @@ function App(){
       //check that status code is 200, change state isUser to true, isLoggedIn to true if so. 
       .then(data => {
         if(data.status === 200){
-          setUserDetails((userDetails) => ({...userDetails,...{isUser: true, isLoggedIn: true,}}));
+          setUserDetails((userDetails) => ({...userDetails,...{isUser: true, isLoggedIn: true, username: username}}));
         }
 
       })
@@ -213,6 +212,34 @@ function App(){
     } //end of sendACreateUserRequest
 
 
+
+    function getUserDetails(username){
+      //event.preventDefault();
+  
+      // send a fetch with username.
+      // get the response, check for OK
+      // update state 
+      // Stick an error message if we get an error
+  
+      fetch('/api/user/items', {
+        method: 'POST',
+        body: JSON.stringify({username: userDetails.username}),
+        headers:{
+            'Content-Type': 'application/json'
+        },
+      })
+        //assuming I get back and object with all their Things, I need to stick them all in userThings
+        .then(result => result.json())
+        .then(data => {
+          console.log('Return is...', data);
+          //console.log('data status is...', data.status)  //doesn't exist, we ran it through result.JSON, only the body now.
+          if(data){
+            setUserDetails((userDetails) => ({...userDetails,...{userThings: data}}));
+            console.log('userDetails', userDetails)
+          };
+        });
+  
+      } //end of sendACreateUserRequest
 
 
 
@@ -228,7 +255,10 @@ function App(){
     return <div id = 'screen'><Login sendALoginRequest={sendALoginRequest} goToCreateUser={goToCreateUser}/></div>;
   }
   if(userDetails.isLoggedIn === true && userDetails.isUser === true){          //They're logged in, do the main screen.
-    return <div id = 'screen'><UI consoleLogForTesting={consoleLogForTesting}/></div>;
+    if(userDetails.userThings.length===0) getUserDetails(userDetails.username);
+    // const things = userDetails.userThings;
+    // const username = userDetails.username;
+    return <div id = 'screen'><UI consoleLogForTesting={consoleLogForTesting} username={userDetails.username} userThings={userDetails.userThings} /></div>;
   }
 
 
