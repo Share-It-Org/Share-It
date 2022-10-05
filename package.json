@@ -2,7 +2,7 @@
   "name": "scratch-project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
     "start": "concurrently \"webpack-dev-server --mode development --hot --progress --color\" \"nodemon BackEnd/server.js\"",
     "server": "nodemon BackEnd/server.js",
