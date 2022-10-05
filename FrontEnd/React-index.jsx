@@ -141,8 +141,8 @@ function App(){
     password:"",
     isLoggedIn: false,
     isUser: true,
-    userThings: {},
-    searchedThings: {}
+    userThings: [],
+    searchedThings: []
   });
 
   //functions stuff
@@ -213,8 +213,8 @@ function App(){
 
 
 
-    function getUserDetails(event, username){
-      event.preventDefault();
+    function getUserDetails(username){
+      //event.preventDefault();
   
       // send a fetch with username.
       // get the response, check for OK
@@ -231,9 +231,12 @@ function App(){
         //assuming I get back and object with all their Things, I need to stick them all in userThings
         .then(result => result.json())
         .then(data => {
-          if(data.status === 200){
+          console.log('Return is...', data);
+          //console.log('data status is...', data.status)  //doesn't exist, we ran it through result.JSON, only the body now.
+          if(data){
             setUserDetails((userDetails) => ({...userDetails,...{userThings: data}}));
-          }
+            console.log('userDetails', userDetails)
+          };
         });
   
       } //end of sendACreateUserRequest
@@ -252,7 +255,9 @@ function App(){
     return <div id = 'screen'><Login sendALoginRequest={sendALoginRequest} goToCreateUser={goToCreateUser}/></div>;
   }
   if(userDetails.isLoggedIn === true && userDetails.isUser === true){          //They're logged in, do the main screen.
-    getUserDetails(userDetails.username);
+    if(userDetails.userThings.length===0) getUserDetails(userDetails.username);
+    // const things = userDetails.userThings;
+    // const username = userDetails.username;
     return <div id = 'screen'><UI consoleLogForTesting={consoleLogForTesting} username={userDetails.username} userThings={userDetails.userThings} /></div>;
   }
 
