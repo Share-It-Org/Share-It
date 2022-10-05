@@ -1,5 +1,6 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: './FrontEnd/React-index.jsx',
   output: {
@@ -7,8 +8,16 @@ module.exports = {
     filename: 'bundle.js',
   },
   devServer: {
+    host: 'localhost',
+    port: 8080,
+    open: true,
+    hot: true,
     proxy: {
       '/api': 'http://localhost:3000',
+    },
+    static: {
+      directory: path.join(__dirname, 'dist'),
+      publicPath: '/dist',
     },
   },
   plugins: [
@@ -32,13 +41,18 @@ module.exports = {
       //css
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       //loading images
-      //   {
-      //     test: /\.(png|svg|jpg|jpeg|gif)$/i,
-      //     type: 'asset/resource',
-      //   },
+      {
+        test: /\.(png|svg|jpe?g|gif)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+      },
     ],
   },
 };
