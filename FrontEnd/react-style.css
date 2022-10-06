@@ -1,20 +1,66 @@
-/* div {
-    border: 2px dotted red
-} */
-
-body {
-    background-image: url('https://i.imgur.com/4XkO7AX.jpeg');
-    background-size: cover;
-    background-color: lightskyblue;
+div {
+    /* border: 1px solid #718e88 */
 }
 
+body {
+    background-color: #a3c0ba;
+    font-family: 'Quicksand', sans-serif;
+}
+h1, h2, h3 {
+    margin: 10px;
+}
+#firstName,
+#email,
+#username, 
+#password {
+    margin: 3px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 10px ;
+    box-shadow:inset 0 0 5px #718e88;
+    background: transparent;
+    font-family: 'Quicksand', sans-serif;
+    color: #6d584f;
+}
+
+#button {
+    padding: 10px;
+    margin: 10px;
+    font-weight: 700;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #c2c2b4;
+    border-radius: 10px;
+    border: 2px solid #718e88;
+    box-shadow: 2px 2px 2px 1px rgba(107, 144, 143, 0.2);
+    /* max-width: 30%; */
+    /* min-width: 30%; */
+}
+
+#button:hover {
+    box-shadow: 5px 5px 5px 3px rgba(107, 144, 143, 0.2);
+    border: 2px solid #ecc9c7;
+    cursor: pointer;
+}
+
+#loginBox{
+    font-size: medium;
+}
 .centerMe {
     /* padding: 400px;     should move it down, but needs to be inside another div. Do later */
-    background-color: whitesmoke;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+	justify-content: center;
+    align-items: center;
+    background-color: #a3c0ba;
     margin: auto;   
-    width: 30%;
-    border: 5px solid black;
+    /* width: 30%; */
+    /* border: 3px solid #963a2f; */
+    border: 1px solid #718e88;
     padding: 15px;
+    margin-top: 10%;
+    max-width: 30%;
 }
 
 #screen{

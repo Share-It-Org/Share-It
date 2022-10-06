@@ -2,7 +2,7 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './FrontEnd/src/index.js',
+  entry: './FrontEnd/React-index.jsx',
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
