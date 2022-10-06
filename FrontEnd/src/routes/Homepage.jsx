@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Card from '../components/Card.jsx';
 import MainFeed from '../components/MainFeed.jsx';
 import { useLocation } from 'react-router-dom';
-import NavigationBar from '../components/NavigationBar.jsx';
+import NavigationBar from '../containers/NavigationBar.jsx';
 import CategoriesBar from '../components/CategoriesBar.jsx';
 import MapState from '../types/MapState.js';
 import ItemModal from '../components/ItemModal.jsx';

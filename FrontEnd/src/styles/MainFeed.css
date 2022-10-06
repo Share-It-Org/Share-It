@@ -1,12 +1,23 @@
+body {
+    overflow:hidden;
+}
+
 #splitscreen-feed {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 100vh;
 }
 
 #splitscreen-feed .card-container {
     grid-column: 1;
 }
 
-#mapSidebarContainer {
+#splitscreen-feed #mapdiv {
     grid-column: 2;
+    height: 500px;
+    overflow-y: visible;
+}
+
+.card-container {
+    overflow-y: scroll;
 }
