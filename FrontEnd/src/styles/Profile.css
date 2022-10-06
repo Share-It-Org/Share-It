@@ -1,7 +1,31 @@
-#create-item {
+/* #create-item {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     width: 20vw;
+} */
+.profileContainer{
+    border: 1px solid black;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileDivs {
+    /* padding: 400px;     should move it down, but needs to be inside another div. Do later */
+    background-color: #a3c0ba;
+    margin: auto;   
+    /* width: 30%; */
+    /* border: 3px solid #963a2f; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 40px;
+    border: 1px solid #718e88;
+    padding: 15px;
+    margin-top: 10%;
+    max-width: 30%;
 }
