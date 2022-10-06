@@ -18,11 +18,11 @@ function Login({ sendALoginRequest, goToCreateUser }){
             {/* <label >Password:</label> */}
             <input type="password" id="password" name="password" placeholder="password" onChange={(e) => password = e.target.value}></input>
             <br></br>
-          <input id="button" type="submit" value="Submit"></input>
+          <input className="btn" type="submit" value="Submit"></input>
         </form>
 
 
-        <button id="button" onClick={goToCreateUser}>Create A New Account</button>
+        <button className="btn" onClick={goToCreateUser}>Create A New Account</button>
 
 
 
