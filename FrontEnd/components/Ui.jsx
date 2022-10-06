@@ -6,7 +6,7 @@ import Thing from './OthersThing.jsx';
 
 function UI({ username, consoleLogForTesting }){
 
-    return     <div id='UI'>   <h1>Hello, {username}, I totally need to make a proper UI page here. </h1>
+    return     <div className='centerMe' id='UI'>   <h1>Welcome , {username}, I totally need to make a proper UI page here. </h1>
         
         <div id='userAndSearchOnTop'>
             <div id='userInformation'>Here goes user information. Username, email, location, etc.</div>
