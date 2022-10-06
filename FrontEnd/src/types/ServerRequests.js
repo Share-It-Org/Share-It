@@ -1,11 +1,12 @@
 const ServerRequests = {}
 
-ServerRequests.CreateUser = (username, password, email) => {
+ServerRequests.CreateUser = (formData) => {
+    console.log(formData);
     return fetch(...[
         '/api/user/create', 
         {
             method: 'POST',
-            body: JSON.stringify({username: username , password: password, email: email}),
+            body: JSON.stringify(formData),
             headers:{
                 'Content-Type': 'application/json'
             },
