@@ -4,6 +4,7 @@ const itemController = require('../Controllers/item-controllers');
 const userController = require('../Controllers/user-controller');
 const router = express.Router();
 
+//JOE: this router works via postman, it's req.body should have name and username
 router.post(
   '/create',
   itemController.createItem,
@@ -15,6 +16,7 @@ router.post(
   }
 );
 
+// JOE: what does this do?
 router.post('/', databaseController.createQueryData, 
 userController.getUserId, 
 databaseController.getRecords,
@@ -25,6 +27,13 @@ databaseController.getRecords,
     res.status(200).send(res.locals.response.rows)
     
 })
+
+
+// JOE: HOLY SHIT I'M STARTING TO WRITE CODE FOR A FEATURE THIS FEELS GOOD I LIKE THIS
+router.delete('/delete', (req, res, next) => {
+  
+  res.status(200).send(res.locals.response.rows)
+  })
 
 /*
 
