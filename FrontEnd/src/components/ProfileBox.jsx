@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const ProfileBox = () => {
   return (
-    <div>ProfileBox</div>
+    <Link to="/profile">Profile </Link>
   )
 }
 

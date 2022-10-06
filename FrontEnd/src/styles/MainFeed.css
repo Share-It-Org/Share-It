@@ -1,0 +1,12 @@
+#splitscreen-feed {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#splitscreen-feed .card-container {
+    grid-column: 1;
+}
+
+#mapSidebarContainer {
+    grid-column: 2;
+}
