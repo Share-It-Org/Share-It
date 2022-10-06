@@ -9,6 +9,8 @@ const MainFeed = ({cards, mapState}) => {
   const [itemLocations, setItemLocations] = useState([]);
 
   if(mapState === MapState.Hidden) {
+    document.body.style.overflow = "";
+
     return (
     <div id="fullscreen-feed">
       <CardContainer cards={cards} />
@@ -16,13 +18,16 @@ const MainFeed = ({cards, mapState}) => {
     )
   }
   else if (mapState === MapState.Peek) {
+    document.body.style.overflow = "hidden";
     return (
     <div id="splitscreen-feed">
       <div className="card-container">
         <CardContainer cards={cards} />
       </div>
-      <div id="mapdiv" className='map'> 
-        <Map itemLocations={itemLocations} /> 
+      <div id="mapdiv" className='map'>
+        <div id="slides" >
+          <Map itemLocations={itemLocations} /> 
+        </div>
       </div>
     </div>
     )
