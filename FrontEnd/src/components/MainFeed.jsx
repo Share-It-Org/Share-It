@@ -21,10 +21,10 @@ const MainFeed = ({cards, mapState}) => {
     document.body.style.overflow = "hidden";
     return (
     <div id="splitscreen-feed">
-      <div className="card-container">
+      <div className="card-container" data-test='card-container'>
         <CardContainer cards={cards} />
       </div>
-      <div id="mapdiv" className='map'>
+      <div id="mapdiv" className='map' data-test='map-container'>
         <div id="slides" >
           <Map itemLocations={itemLocations} /> 
         </div>

@@ -29,11 +29,11 @@ const Login = () => {
     <div id='loginBox' className='centerMe'>
         <h1>Stuff Library</h1>
         <img id='logo' src={Images}/>
-        <h2>Welcome</h2>
+        <h2 data-test='greeting'>Welcome</h2>
         <h3>login</h3>
-          <input className="inputField" type="text" id="username" name="username" placeholder="username" onChange={(e) => username = e.target.value}></input>
-          <input className="inputField" type="password" id="password" name="password" placeholder="password" onChange={(e) => password = e.target.value}></input>
-          <input className="btn" type="submit" value="Submit" onClick={requestLogin}></input>
+          <input className="inputField" type="text" id="username" name="username" placeholder="username" onChange={(e) => username = e.target.value} data-test='un-input'></input>
+          <input className="inputField" type="password" id="password" name="password" placeholder="password" onChange={(e) => password = e.target.value} data-test='pw-input'></input>
+          <input className="btn" type="submit" value="Submit" onClick={requestLogin} data-test='login-button'></input>
 
         <button className="btn" onClick={() => navigate('signup')}>Create A New Account</button>
         

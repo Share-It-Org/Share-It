@@ -68,7 +68,7 @@ function Homepage() {
         Open Modal
       </button>
         <MainFeed cards={cards} mapState={mapState} />
-        <input type="button" value="View Map" onClick={toggleScreenFormat} />
+        <input data-test='map-button' type="button" value="View Map" onClick={toggleScreenFormat} />
       {isOpen && <ItemModal setIsOpen={setIsOpen} />} 
     </div>
   );
