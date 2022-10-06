@@ -13,8 +13,10 @@
 
 #splitscreen-feed #mapdiv {
     grid-column: 2;
-
+    margin-top: -175px;
     height: 60vh;
+    margin-left: 20px;
+    margin-right: 20px;
     align-self: center;
     position: relative;
     overflow: hidden;

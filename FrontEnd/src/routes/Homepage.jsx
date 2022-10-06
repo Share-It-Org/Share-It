@@ -4,7 +4,7 @@ import Card from '../components/Card.jsx';
 import MainFeed from '../components/MainFeed.jsx';
 import { useLocation } from 'react-router-dom';
 import NavigationBar from '../containers/NavigationBar.jsx';
-import CategoriesBar from '../components/CategoriesBar.jsx';
+import CategoriesBar from '../containers/CategoriesBar.jsx';
 import MapState from '../types/MapState.js';
 import ItemModal from '../components/ItemModal.jsx';
 
@@ -70,9 +70,6 @@ function Homepage() {
       <h1>Welcome {username}!</h1>
         <NavigationBar />
         <CategoriesBar />
-        <button className="modalButton" onClick={toggleModal}>
-        Open Modal
-      </button>
         <MainFeed cards={cards} mapState={mapState} />
         <input type="button" value="View Map" onClick={toggleScreenFormat} />
       {itemModalDetails.isOpen && <ItemModal setIsOpen={setItemModal} details={itemModalDetails}/>} 
