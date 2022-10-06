@@ -19,7 +19,9 @@ function Login({ sendALoginRequest, goToCreateUser }){
         </form>
 
         <button onClick={goToCreateUser}>Create A New Account</button>
-
+        <nav>
+        <Link to="/home">"Go to Homepage" (testing purposes) </Link>
+      </nav>
 
         
     </div>
