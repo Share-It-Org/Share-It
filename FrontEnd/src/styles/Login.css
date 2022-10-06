@@ -1,4 +1,5 @@
 div {
+
     /* border: 1px solid #718e88 */
 }
 
@@ -15,10 +16,12 @@ form {
     flex-direction: column;
 }
 
-#firstName,
-#email,
-#username, 
-#password {
+#logo{
+    max-width: 30%;
+    max-height: 30%;
+}
+
+.inputField {
     margin: 3px;
     padding: 5px;
     border: none;
@@ -41,12 +44,14 @@ form {
     box-shadow: 2px 2px 2px 1px rgba(107, 144, 143, 0.2);
     /* max-width: 30%; */
     /* min-width: 30%; */
+    transition: opacity .5s;
 }
 
 .btn:hover {
     box-shadow: 5px 5px 5px 3px rgba(107, 144, 143, 0.2);
     border: 2px solid #ecc9c7;
     cursor: pointer;
+    opacity: .8;
 }
 
 #loginBox{
