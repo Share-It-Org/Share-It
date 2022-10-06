@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import '../styles/Profile.css';
 
 const ProfileBox = () => {
   return (
-    <div className="profileContainer">
+    
     <Link to="/profile">Profile </Link>
-    </div>
+    
   )
 }
 
