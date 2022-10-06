@@ -1,6 +1,6 @@
 import React from 'react'
-import ProfileBox from './ProfileBox.jsx'
-import SearchBar from './SearchBar.jsx'
+import ProfileBox from '../components/ProfileBox.jsx'
+import SearchBar from '../components/SearchBar.jsx'
 import "../styles/NavigationBar.css"
 
 const NavigationBar = () => {
