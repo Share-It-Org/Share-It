@@ -26,4 +26,31 @@ databaseController.getRecords,
     
 })
 
+/*
+
+We want tests for:
+
+routes
+    do the routes go to the right places
+    do we get the responses we expect
+  all existing routes
+  all new routes (update item, delete item)
+
+queries
+    are the queries formatted correctly before sending
+    do we get the response we should from the databse 
+  all existing queries
+  new queries 
+
+controllers
+
+new features
+  tests related to map implementation
+    storing and querying locations
+  new data: user ratings, item ratings, pictures
+
+
+
+*/
+
 module.exports = router;
