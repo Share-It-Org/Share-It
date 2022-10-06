@@ -18,6 +18,7 @@ const CreateItemForm = () => {
     const [categoryVal, setCategoryVal] = useState('Category')
   
     const {name, description, leaseDuration, category, photo} = formData;
+
   
     const handleChangeForm = (e) => {
       // TODO: Why is Object.assign approach below not working?
@@ -56,7 +57,7 @@ const CreateItemForm = () => {
 
     return (
       <div>
-        <div class="header"> Hello, { name } </div><br/>
+        <div class="header"> <h1>Hello (:</h1> </div><br/>
       <div className='flexContainer'>
       <div className="profileDivs" id="create-item-form">
         <div id="category-dropdown">
@@ -71,7 +72,7 @@ const CreateItemForm = () => {
         <input className='btn' type="button" value="Submit" onClick={handleSubmit} />
       </div>
       <br/>
-      <div className='provileDivs' id="my-item">
+      <div className='profileDivs' id="my-item">
         <h3>my items</h3>
         <input className='inputField' type="text" id='name' name='name' placeholder="Item Name" value={name} ref={inputRef} onChange={handleChangeForm}/>
         <input className='inputField' type="text" id='description' name='description' placeholder="Description" value={description} onChange={handleChangeForm}/>
@@ -81,8 +82,8 @@ const CreateItemForm = () => {
         <input className='btn' type="button" value="Submit" onClick={handleSubmit} />
       </div>
       <br/>
-      <div className='provileDivs' id="delete-item">
-        <h3>my items</h3>
+      <div className='profileDivs' id="delete-item">
+        <h3>delete items</h3>
         <input className='inputField' type="text" id='name' name='name' placeholder="Item Name" value={name} ref={inputRef} onChange={handleChangeForm}/>
         <input className='inputField' type="text" id='description' name='description' placeholder="Description" value={description} onChange={handleChangeForm}/>
         <input className='inputField' type="text" id='leaseDuration' name='leaseDuration' placeholder="Duration" value={leaseDuration} onChange={handleChangeForm}/>
