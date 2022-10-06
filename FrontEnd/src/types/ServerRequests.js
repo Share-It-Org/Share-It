@@ -15,6 +15,7 @@ ServerRequests.CreateUser = (formData) => {
 }
 
 ServerRequests.LoginUser = (username, password) => {
+    console.log("fetching");
     return fetch(...[
         '/api/user/login', 
         {
