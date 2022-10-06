@@ -10,6 +10,7 @@ const saltFactor = 10;
 const userController = {};
 
 userController.createUser = (req, res, next) => {
+  console.log("CREATE USER WAS CALLED *******************************")
     req.locals = {
         queryData: {},
     };
@@ -71,6 +72,9 @@ userController.loginUserAfter = (req, res, next) => {
 };
 
 userController.getUserId = async (req, res, next) => {
+  //This is a hack:
+  req.locals = {};
+
   const query = new getRecordsModel();
   query.setTableName("users");
   // Changed "id" to "_id" below
@@ -80,6 +84,8 @@ userController.getUserId = async (req, res, next) => {
   console.log("userController.getUserId");
 
   req.locals.queryData = query.queryData;
+
+  console.log("I got records");
   next();
 }
 
