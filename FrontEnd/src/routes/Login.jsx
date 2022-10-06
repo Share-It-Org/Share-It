@@ -1,6 +1,6 @@
+import '../styles/Login.css'
 import React from 'react'
 import Images from '../images/SCycle.png';
-import '../styles/Login.css'
 import ServerRequests from '../types/ServerRequests';
 import { useLocation, useNavigate } from 'react-router-dom';
 
