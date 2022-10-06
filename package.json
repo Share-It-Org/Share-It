@@ -25,6 +25,7 @@
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.18.1",
+    "node-fetch": "^3.2.10",
     "path": "^0.12.7",
     "pg": "^8.8.0",
     "prop-types": "^15.8.1",

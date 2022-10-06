@@ -3,6 +3,7 @@ const db = require('../Models/database-model')
 // setting up bcrypt stuff
 const bcrypt = require('bcrypt');
 const getRecordsModel = require('../Models/get-records-model');
+const insertRecordsModel = require('../Models/insert-records-model');
 const dbController = require('../Controllers/database-controller');
 const saltFactor = 10; 
 
@@ -17,13 +18,33 @@ userController.createUser = (req, res, next) => {
 
     // req.locals.queryData.tableName = 'users';
     // req.locals.queryData.username = req.body.username;
+    const { email, first_name, last_name, street_address, city, state, zip } = req.body;
+    const { lat, lng } = res.locals.newEntry;
 
+    req.locals.queryData.email = email;
+    req.locals.queryData.first_name = first_name;
+    req.locals.queryData.last_name = last_name;
+    req.locals.queryData.street_address = street_address;
+    req.locals.queryData.city = city;
+    req.locals.queryData.state = state;
+    req.locals.queryData.zip = zip;
+    req.locals.queryData.lat = lat;
+    req.locals.queryData.lng = lng;
     
    
     bcrypt.hash(req.body.password, saltFactor, function(error, hash) {
         req.locals.queryData.tableName = 'users';
         req.locals.queryData.username = req.body.username;
         req.locals.queryData.password = hash;
+        // req.locals.queryData.email = email;
+        // req.locals.queryData.first_name = first_name;
+        // req.locals.queryData.last_name = last_name;
+        // req.locals.queryData.street_address = street_address;
+        // req.locals.queryData.city = city;
+        // req.locals.queryData.state = state;
+        // req.locals.queryData.zip = zip;
+        // req.locals.queryData.lat = lat;
+        // req.locals.queryData.lng = lng;
         console.log('req.locals.queryData: ', req.locals.queryData)
         return next();
         // console.log('inside userController.createUser')
@@ -87,6 +108,25 @@ userController.getUserId = async (req, res, next) => {
 
   console.log("I got records");
   next();
+}
+
+userController.createAddress = (req, res, next) => {
+/* we need to format the data for insert reords here 
+table = locations
+street_address, city, state, zip...  lat lng?
+
+*/
+// const { street_address, city, state, zip } = req.body;
+const { username } = req.body;
+const { lat, lng } = res.locals.newEntry;
+
+const query =  new insertRecordsModel();
+query.setTableName("users");
+query.setProps([['lat', lat], ['lng', lng]]);
+
+req.locals.queryData = query.queryData;
+next();
+
 }
 
 

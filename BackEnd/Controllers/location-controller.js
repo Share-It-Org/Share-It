@@ -1,5 +1,6 @@
 const db = require('../Models/database-model');
 const getRecordsModel = require('../Models/get-records-model');
+import fetch from 'node-fetch';
 
 
 const locationController = {};
@@ -37,29 +38,29 @@ locationController.geoCode = (req, res, next) => {
 //.addLocation
 //this is the middleware method to add the new entry into the locations table and receive back the location _id
 //the location _id will then be passed on to be used so cave the entry in captions table with a reference to the location
-locationController.addLocation = (req, res, next) => {
-  console.log('hello, from ADD LOCATION');
-  const { name, caption, zip } = req.body;
-  const { street_address, city, state, lat, lng, formatted_address } = res.locals.newEntry;
-  const text = 'INSERT INTO locations(street_address, city, state, created_by_id, zip_code, lat, lng,  name, formatted_address) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING _id;';
-  const params = [street_address, city, state, null, zip, lat, lng, name, formatted_address];
+// locationController.addLocation = (req, res, next) => {
+//   console.log('hello, from ADD LOCATION');
+//   const { name, caption, zip } = req.body;
+//   const { street_address, city, state, lat, lng, formatted_address } = res.locals.newEntry;
+//   const text = 'INSERT INTO locations(street_address, city, state, created_by_id, zip_code, lat, lng,  name, formatted_address) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING _id;';
+//   const params = [street_address, city, state, null, zip, lat, lng, name, formatted_address];
 
-  await db.query(text, params, (err, res2) => {
-      if (err) {
-          next({
-              log: 'Express error handler caught unknown middleware error',
-              status: 500,
-              message: { err: 'Unable to add a new location' },
-          });
-      } else {
-          console.log('entry made :', res2.rows[0]._id);
-          //saves the _id of the entry just made to res.locals
-          res.locals.newEntryID = res2.rows[0]._id;
-          next();
-      }
+//   await db.query(text, params, (err, res2) => {
+//       if (err) {
+//           next({
+//               log: 'Express error handler caught unknown middleware error',
+//               status: 500,
+//               message: { err: 'Unable to add a new location' },
+//           });
+//       } else {
+//           console.log('entry made :', res2.rows[0]._id);
+//           //saves the _id of the entry just made to res.locals
+//           res.locals.newEntryID = res2.rows[0]._id;
+//           next();
+//       }
 
-  });
-}
+//   });
+// }
 
 
 

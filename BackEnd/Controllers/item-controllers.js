@@ -16,14 +16,17 @@ itemController.createItem = async (req, res, next) => {
   // create a user variable and set it to the query result of passing in username to users to get user_id
   // const user_id = db.query(`SELECT _id from users ON users.username = ${username}`);
   // create a category variable and set it to the query result of passing in category to categories to get category_id
-  const category_id = await db.query(`SELECT _id from categories WHERE name = '${category}'`);
+  let category_id = await db.query(`SELECT _id from categories WHERE name = '${category}'`);
+  category_id = category_id.rows[0]._id;
+  console.log('category_id: ', category_id);
   const query = new insertRecordsModel();
   query.setTableName("items")
   // query.setColumns("name", "description", "status", "photo", "owner", "holder", "lease_duration", "category");
   console.log(query.columns);
   // query.setValues(name, description, "available", photo, _id, _id, leaseDuration, category_id);
 
-  query.setProps({"name": name}, {"description": description}, {"status": "available"}, {"photo": photo}, {"owner": _id}, {"holder": _id}, {"lease_duration": leaseDuration}, {"category": category})
+  // query.setProps([{"name": name}, {"description": description}, {"status": "available"}, {"photo": photo}, {"owner": _id}, {"holder": _id}, {"lease_duration": leaseDuration}, {"category": category}]);
+  query.setProps([["name", name], ["description", description], ["status", "available"], ["photo", photo], ["owner", _id], ["holder", _id], ["lease_duration", leaseDuration], ["category", category_id]]);
 
   console.log("userController.getUserId");
 
@@ -31,17 +34,17 @@ itemController.createItem = async (req, res, next) => {
   next();
 
 
-  req.locals = {
-    queryData: {},
-  };
+  // req.locals = {
+  //   queryData: {},
+  // };
 
-  console.log(req.locals);
-  req.locals.queryData.tableName = 'items';
-  //When we need to grab description of an item from the front end
-  req.locals.queryData.description = req.body.description;
+  // console.log(req.locals);
+  // req.locals.queryData.tableName = 'items';
+  // //When we need to grab description of an item from the front end
+  // req.locals.queryData.description = req.body.description;
 
-  console.log(req.body);
-  return next();
+  // console.log(req.body);
+  // return next();
 };
 
 itemController.getItems = (req, res, next) => {
