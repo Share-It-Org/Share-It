@@ -1,11 +1,13 @@
 import React from 'react'
 import ServerRequests from '../types/ServerRequests';
+import { useLocation } from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
 import '../styles/Profile.css';
 import DropdownInputField from './DropdownInputField.jsx';
 
 const CreateItemForm = () => {
     const inputRef = useRef(null);
+    const location = useLocation();
 
     const [formData, setFormData] = useState({ 
         name: '',
@@ -27,14 +29,6 @@ const CreateItemForm = () => {
         [e.target.name]: e.target.value
       }))
     }
-
-    function DropdownMenu() {
-        return (
-            <div className="dropdown">
-
-            </div>
-        )
-    }
   
     const handleSubmit = (e) => {
       console.log(formData);
@@ -44,6 +38,7 @@ const CreateItemForm = () => {
     //Focus on first input field upon mounting
     useEffect(() => {
       // inputRef.current.focus();
+      console.log(location);
     })
 
     const handlePickCategory = (e, val) => {

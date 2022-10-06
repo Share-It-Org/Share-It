@@ -25,7 +25,7 @@ const MainFeed = ({cards, mapState}) => {
         <CardContainer cards={cards} />
       </div>
       <div id="mapdiv" className='map'>
-        <div id="slides" >
+        <div id="slide" >
           <Map itemLocations={itemLocations} /> 
         </div>
       </div>
