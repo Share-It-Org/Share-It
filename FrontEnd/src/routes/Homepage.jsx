@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import Card from './Card.jsx';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import SearchBar from '../components/SearchBar.jsx';
+import NavigationBar from '../components/NavigationBar.jsx';
+import CategoriesBar from '../components/CategoriesBar.jsx';
+import ScreenFormat from '../types/ScreenFormat.js';
 
 function Homepage() {
   let cards = [];
@@ -41,8 +45,10 @@ function Homepage() {
 
   return (
     <div>
-      <h1>Home</h1>
+        <NavigationBar />
+        <CategoriesBar />
         {cards}
+        <input type="button" value="View Map" onClick={{/* I don't have a damn clue, sorry */}} />
     </div>
   );
 }
