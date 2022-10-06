@@ -30,9 +30,10 @@ function UI({ username, consoleLogForTesting, userThings, getUserDetails }){
         
         <div id='userAndSearchOnTop'>
             <div id='userInformation'>
-                <p>Here goes user information. Username, email, location, etc.</p>
-                <h3>Hello {username}, welcome.</h3>
+                {/* <p>Here goes user information. Username, email, location, etc.</p> */}
+                <h3>Hello {username}.</h3>
             </div>
+            <br/>
             <div id='searchBar'>Here goes search information. Type what you're looking for by hashtag and click the search button.
             I need an input field here, but it's being weird about it...
             <h3>Search by #hashtag here for Things to borrow.</h3>
