@@ -101,11 +101,7 @@ function Form() {
   );
 }
 
-
-
 */
-
-
 
 //setup stuff
 //import everything, set up default variables, etc etc etc.
@@ -116,16 +112,10 @@ import Login from './components/Login.jsx';
 import Signup from './components/Signup.jsx';
 import UI from './components/Ui.jsx';
 
-
-
 //testing for initial "is it working" test. Ignore this once we establish basic functionality. 
 const Testing = () => {
   return <div>If you can see this, react is working. Yay!</div>;
 };
-
-
-
-
 
 //This is the app. 
 //Set up state. 
@@ -255,7 +245,7 @@ function App(){
     return <div id = 'screen'><Login sendALoginRequest={sendALoginRequest} goToCreateUser={goToCreateUser}/></div>;
   }
   if(userDetails.isLoggedIn === true && userDetails.isUser === true){          //They're logged in, do the main screen.
-    if(userDetails.userThings.length===0) getUserDetails(userDetails.username);
+    if(!userDetails.username) getUserDetails(userDetails.username);
     // const things = userDetails.userThings;
     // const username = userDetails.username;
     return <div id = 'screen'><UI consoleLogForTesting={consoleLogForTesting} username={userDetails.username} userThings={userDetails.userThings} /></div>;

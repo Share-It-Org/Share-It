@@ -14,6 +14,7 @@ router.post('/login', userController.loginUserBefore, databaseController.getReco
     response.status(200).send('testing login function');
   });
 
+  // this route doesn't seem to be used
 router.post('/signup', userController.createUser, databaseController.insertRecord, (req, res) => {
   response.status(200).send("Created user!");
 })

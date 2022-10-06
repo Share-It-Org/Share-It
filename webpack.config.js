@@ -6,7 +6,9 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
+  mode: "development",
   devServer: {
     host: 'localhost',
     port: 8080,
@@ -19,6 +21,7 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
       publicPath: '/dist',
     },
+    historyApiFallback: true, //this routes us to index.html whenever we 404
   },
   plugins: [
     new HTMLWebpackPlugin({

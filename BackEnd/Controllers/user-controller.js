@@ -13,12 +13,17 @@ userController.createUser = (req, res, next) => {
     req.locals = {
         queryData: {},
     };
+
+    // req.locals.queryData.tableName = 'users';
+    // req.locals.queryData.username = req.body.username;
+
     
-    // req.locals.queryData.password = req.body.password;
+   
     bcrypt.hash(req.body.password, saltFactor, function(error, hash) {
         req.locals.queryData.tableName = 'users';
         req.locals.queryData.username = req.body.username;
         req.locals.queryData.password = hash;
+        console.log('req.locals.queryData: ', req.locals.queryData)
         return next();
         // console.log('inside userController.createUser')
         // console.log(req.body);
@@ -35,6 +40,9 @@ userController.loginUserBefore = (req, res, next) => {
     queryData: {},
   };
 
+  // these lines store the username and password from the fetch request
+  // then the queryData object is constructed to match the model in get-records-model.js
+  // why are we not using the class constructor here?
   const username = req.body.username;
   const password = req.body.password;
   req.locals.queryData.tableName = "users";
@@ -65,7 +73,8 @@ userController.loginUserAfter = (req, res, next) => {
 userController.getUserId = async (req, res, next) => {
   const query = new getRecordsModel();
   query.setTableName("users");
-  query.setAttributes("id");
+  // Changed "id" to "_id" below
+  query.setAttributes("_id");
   query.setConditions(`username = '${req.body.username}'`)
 
   console.log("userController.getUserId");
