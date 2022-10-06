@@ -6,10 +6,6 @@ import Signup from './components/Signup.jsx';
 import UI from './components/Ui.jsx';
 import ServerRequest from './src/types/ServerRequests.js';
 
-const Testing = () => {
-  return <div>If you can see this, react is working. Yay!</div>;
-};
-
 function App(){
 
   const [userDetails, setUserDetails] = React.useState({
@@ -78,7 +74,6 @@ function App(){
     if(!userDetails.username) getUserDetails(userDetails.username);
     return <div id = 'screen'><UI consoleLogForTesting={consoleLogForTesting} username={userDetails.username} userThings={userDetails.userThings} /></div>;
   }
-
 };
 
 //Render
