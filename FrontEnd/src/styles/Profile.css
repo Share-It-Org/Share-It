@@ -1,7 +1,51 @@
-#create-item {
+:root {
+    --form-width: 20vw;
+}
+
+#create-item-form {
+    margin-top: 25px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 20vw;
+    border: black;
+    border-style: solid;
+    width:--form-width;
+}
+
+.dropdown-field {
+    width: calc(var(--form-width)*0.815);
+    background-color: beige;
+}
+
+#create-item-form input {
+    width: calc(var(--form-width)*0.8);
+    height: 25px;
+    background-color: beige;
+    border-style: none;
+}
+
+.icon-button {
+    --button-size: calc(var(--form-width)*.1);
+    width: var(--button-size);
+    height: var(--button-size);
+    padding: 5px;
+    display: flex;
+}
+
+#dropdown-popup {
+    position: absolute;
+    top: 58px;
+    width: 500px;
+    transform:translateX(-45%);
+    background-color: white;
+    border: grey;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+#dropdown-item:hover {
+    background-color: #bad1b7;
 }
