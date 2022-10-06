@@ -49,6 +49,7 @@
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
     "file-loader": "^6.2.0",
+    "file-system": "^2.2.2",
     "html-webpack-plugin": "^5.5.0",
     "nodemon": "^2.0.20",
     "regenerator-runtime": "^0.13.9",

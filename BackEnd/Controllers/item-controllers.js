@@ -21,15 +21,15 @@ itemController.createItem = (req, res, next) => {
 };
 
 itemController.getItems = (req, res, next) => {
-    console.log(res.locals.response.rows[0].id);
+    console.log(res.locals.response.rows[0]._id);
 
     const query = new getRecordsModel();
     query.setTableName("items");
-    query.setConditions(`owner = ${res.locals.response.rows[0].id}`)
+    query.setConditions(`owner = ${res.locals.response.rows[0]._id}`)
 
     req.locals.queryData = query.queryData;
     console.log("HELLO");
-    console.log(res.locals.queryData);
+    console.log(req.locals.queryData);
     next();
     // const query = new getRecordsModel();
     // query.setConditions = (`owner = '${}'`)
