@@ -15,10 +15,12 @@ form {
     flex-direction: column;
 }
 
-#firstName,
-#email,
-#username, 
-#password {
+#logo{
+    max-width: 30%;
+    max-height: 30%;
+}
+
+.inputField {
     margin: 3px;
     padding: 5px;
     border: none;
