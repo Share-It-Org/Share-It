@@ -17,6 +17,7 @@ const Login = () => {
       if(data.status === 200) {
         console.log("200");
         location.state = {username: username};
+        window.localStorage.setItem("StuffLibrary", JSON.stringify({username: username}));
         navigate('/home');
       }
       else {
