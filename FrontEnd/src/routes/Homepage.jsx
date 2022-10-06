@@ -28,21 +28,21 @@ function Homepage() {
   ]
 
   useEffect(() => {
-    //fetch a list of items to display for the user
+    //fetch a list of items to display for the user from the server
 
   })
 
   for(let itemId = 0; itemId < 4; itemId++) {
-    cards.push(<NavLink to={`/home/${itemId}`} state={items[itemId]}><Card name={items[itemId].name} /></NavLink>)
+    cards.push(
+    <NavLink to={`/home/${itemId}`} state={items[itemId]}>
+      <Card name={items[itemId].name} />
+    </NavLink>)
   }
 
   return (
     <div>
       <h1>Home</h1>
         {cards}
-      <Routes>
-        {routes}
-      </Routes>
     </div>
   );
 }
