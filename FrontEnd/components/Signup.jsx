@@ -18,7 +18,7 @@ function Signup({sendACreateUserRequest}){
         <br></br>
         <input type="text" id="email" name="email" placeholder="e-mail" onChange={(e) => email = e.target.value}></input>
         <br></br>
-        <input id="button" type="submit" value="Submit"></input>
+        <input className="btn" type="submit" value="Submit"></input>
     </form>
 
     

@@ -24,7 +24,7 @@ h1, h2, h3 {
     color: #6d584f;
 }
 
-#button {
+.btn {
     padding: 10px;
     margin: 10px;
     font-weight: 700;
@@ -37,7 +37,7 @@ h1, h2, h3 {
     /* min-width: 30%; */
 }
 
-#button:hover {
+.btn:hover {
     box-shadow: 5px 5px 5px 3px rgba(107, 144, 143, 0.2);
     border: 2px solid #ecc9c7;
     cursor: pointer;
