@@ -21,11 +21,7 @@ function Login({ sendALoginRequest, goToCreateUser }){
           <input className="btn" type="submit" value="Submit"></input>
         </form>
 
-
         <button className="btn" onClick={goToCreateUser}>Create A New Account</button>
-
-
-
         
     </div>
 };
