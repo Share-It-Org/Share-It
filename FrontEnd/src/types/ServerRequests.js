@@ -13,7 +13,7 @@ ServerRequests.CreateUser = (username, password, email) => {
     ]);
 }
 
-ServerRequests.LoginUser = (event, username, password) => {
+ServerRequests.LoginUser = (username, password) => {
     return fetch(...[
         '/api/user/login', 
         {
@@ -32,6 +32,34 @@ ServerRequests.GetItems = (username) => {
         {
             method: 'POST',
             body: JSON.stringify({username: username}),
+            headers:{
+                'Content-Type': 'application/json'
+            },
+        }
+    ])
+};
+
+ServerRequests.CreateItem = (username, { 
+    name,
+    description,
+    leaseDuration,
+    category,
+    photo 
+    }) => {
+    fetch(...[
+        '/api/user/items/create',
+        {
+            method: 'POST',
+            body: JSON.stringify({
+                username: username,
+                createItem: {
+                    name: name,
+                    description: description,
+                    leaseDuration: leaseDuration,
+                    category: category,
+                    photo: photo,
+                }
+            }),
             headers:{
                 'Content-Type': 'application/json'
             },

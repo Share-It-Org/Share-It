@@ -1,23 +1,41 @@
 import React from 'react'
 import Images from '../images/SCycle.png';
 import '../styles/Login.css'
+import ServerRequests from '../types/ServerRequests';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const Login = ({sendALoginRequest, goToCreateUser}) => {
+const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  let username = '';
+  let password = '';
+
+  const requestLogin = () => {
+    ServerRequests.LoginUser(username, password)
+    .then(data => {
+      if(data.status === 200) {
+        console.log("200");
+        location.state = {username: username};
+        navigate('/home');
+      }
+      else {
+        // TODO: Add message to user that password was incorrect.
+      }
+    })
+  }
+
   return (
     <div id='loginBox' className='centerMe'>
         <h1>Stuff Library</h1>
         <img src={Images}/>
         <h2>Welcome</h2>
         <h3>login</h3>
-        <form onSubmit={(event) => sendALoginRequest(event, username, password)}>
-            {/* <label>Username:</label> */}
-            <input type="text" id="username" name="username" placeholder="username" onChange={(e) => username = e.target.value}></input>
-            {/* <label >Password:</label> */}
-            <input type="password" id="password" name="password" placeholder="password" onChange={(e) => password = e.target.value}></input>
-          <input className="btn" type="submit" value="Submit"></input>
-        </form>
+          <input type="text" id="username" name="username" placeholder="username" onChange={(e) => username = e.target.value}></input>
+          <input type="password" id="password" name="password" placeholder="password" onChange={(e) => password = e.target.value}></input>
+          <input className="btn" type="submit" value="Submit" onClick={requestLogin}></input>
 
-        <button className="btn" onClick={goToCreateUser}>Create A New Account</button>
+        <button className="btn" onClick={() => navigate('signup')}>Create A New Account</button>
         
     </div>
   )

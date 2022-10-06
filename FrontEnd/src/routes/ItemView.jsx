@@ -13,3 +13,5 @@ const ItemView = () => {
 }
 
 export default ItemView
+
+//This class may need to be removed due to state loss issues with the Google Map view
