@@ -2,7 +2,7 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './FrontEnd/src/index.js',
+  entry: './FrontEnd/__Test__/FakeApp.jsx',
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
@@ -37,7 +37,8 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
+            presets: ['@babel/env', '@babel/react'],
+            plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-transform-async-to-generator'],
           },
         },
       },

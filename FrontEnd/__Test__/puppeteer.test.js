@@ -4,8 +4,17 @@ const regeneratorRuntime = require("regenerator-runtime");
 
 // puppeteer works in development but not in production (port 8080)
 const APP = 'http://localhost:8080';
-// the use of the APP variable means we don't need to import 
-// the serpate files involved in testing 
+// the use of the APP variable means we don't need to import git the serpate files involved in testing
+
+describe('Google - positive control', () => {
+  beforeAll(async () => {
+    await page.goto('https://google.com');
+  });
+
+  it('should be titled "Google"', async () => {
+    await expect(page.title()).resolves.toMatch('Google');
+  });
+});
 
 describe('Front-end Integration/Features', () => {
   let browser;
@@ -44,7 +53,7 @@ describe('Front-end Integration/Features', () => {
           await page.waitForSelector('#username');
           // the focus method needs a selector as a parameter
           // we use the id username
-          await page.focus(#username);
+          await page.focus('#username');
           // emmulate keyboard input using pupeteer methods
           // this will type extremely fast with virtually no delay between charachters 
           await page.keyboard.type('starlord')
@@ -56,7 +65,7 @@ describe('Front-end Integration/Features', () => {
           // this time we don't reload APP to keep the username types in the previous test
           // await page.goto(APP);
           await page.waitForSelector('#password'); // < -- this might be uncessary if not going to new page after last test 
-          await page.focus(#password);
+          await page.focus('#password');
           await page.keyboard.type('hybrid')
           const inputValue = await page.$eval('#password', el => el.value);
           expect(inputValue).toBe('hybrid');
@@ -119,7 +128,7 @@ describe('Front-end Integration/Features', () => {
           it('displays input field for item name in the add item section of profile', async () => {
             await page.goto(APP/profile);
             await page.waitForSelector('#itemName');
-            await page.focus(#itemName);
+            await page.focus('#itemName');
             await page.keyboard.type('Thor\'s Lightening Bolt');
             const value = await page.$eval('#itemName', el => el.value);
             expect(value).toBe('Thor\'s Lightening Bolt');
@@ -137,4 +146,5 @@ describe('Front-end Integration/Features', () => {
             
           // })
 
+    });
 });

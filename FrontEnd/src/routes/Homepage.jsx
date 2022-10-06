@@ -8,6 +8,12 @@ import CategoriesBar from '../components/CategoriesBar.jsx';
 import MapState from '../types/MapState.js';
 import ItemModal from '../components/ItemModal.jsx';
 
+// this is for testing react router functionality
+export const LocationDisplay = () => {
+  const location = useLocation()
+  return <div data-testid="location-display">{location.pathname}</div>
+}
+
 function Homepage() {
   const [cards, setCards] = useState()
   const [isOpen, setIsOpen] = useState(false);
