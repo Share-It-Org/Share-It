@@ -125,4 +125,16 @@ describe('Front-end Integration/Features', () => {
             expect(value).toBe('Thor\'s Lightening Bolt');
           });
 
+          // it('succesfully creates a user', async () => {
+          //   const createUserButtonSelector = '[data-pup*="create-user-button"]'
+  
+          //   await page.waitForSelector(createUserButtonSelector);
+          //   await page.focus(createUserButtonSelector);
+          //   await page.click({
+          //     selector: createUserButtonSelector
+          //   })
+          //   //launch an interceptor and check that a 200 is received from server after clicking.
+            
+          // })
+
 });
