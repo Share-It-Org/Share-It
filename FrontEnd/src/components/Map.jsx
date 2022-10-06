@@ -18,8 +18,6 @@ const center = {
 
 function MyComponent({itemLocations}) {
 
-  // This is the array of saved locations pulled from the database
-
   // This is the current selected pin on the map
   const [selected, setSelected] = useState({});
 

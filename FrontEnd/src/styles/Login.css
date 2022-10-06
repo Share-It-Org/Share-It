@@ -16,12 +16,11 @@ form {
     flex-direction: column;
 }
 
-#logo{
-    max-width: 30%;
-    max-height: 30%;
-}
-
-.inputField {
+#firstName,
+#email,
+#username, 
+#password,
+#signup__location {
     margin: 3px;
     padding: 5px;
     border: none;
@@ -31,6 +30,11 @@ form {
     background: transparent;
     font-family: 'Quicksand', sans-serif;
     color: #6d584f;
+}
+
+#logo{
+    max-width: 30%;
+    max-height: 30%;
 }
 
 .btn {
