@@ -1,5 +1,7 @@
 div {
     /* border: 1px solid #718e88 */
+        display: block;
+        margin : 0 auto;
 }
 
 body {
@@ -9,10 +11,13 @@ body {
 h1, h2, h3 {
     margin: 10px;
 }
-#firstName,
-#email,
-#username, 
-#password {
+
+#logo{
+    max-width: 30%;
+    max-height: 30%;
+}
+
+.inputField {
     margin: 3px;
     padding: 5px;
     border: none;
@@ -24,7 +29,15 @@ h1, h2, h3 {
     color: #6d584f;
 }
 
+input[type="submit"] {
+    display: block;
+    margin : 5px auto;
+}
+
 .btn {
+    display:flex;
+    align-items: center;
+    justify-content: center;
     padding: 10px;
     margin: 10px;
     font-weight: 700;
@@ -60,7 +73,7 @@ h1, h2, h3 {
     border: 1px solid #718e88;
     padding: 15px;
     margin-top: 10%;
-    max-width: 30%;
+    max-width: 40%;
 }
 
 #screen{
@@ -72,7 +85,9 @@ h1, h2, h3 {
 #UI{
     /* background-color: whitesmoke; */
     display: flex;
+    justify-content: center;
     flex-direction: column;
+    border: 2px solid black;
 }
 
 #userAndSearchOnTop{

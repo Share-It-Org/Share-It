@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import MapState from '../types/MapState';
 import Map from './Map.jsx';
-import CardContainer from './CardContainer.jsx';
+import CardContainer from '../containers/CardContainer.jsx';
 import '../styles/MainFeed.css';
 
 const MainFeed = ({cards, mapState}) => {
@@ -27,7 +27,6 @@ const MainFeed = ({cards, mapState}) => {
     </div>
     )
   }
-  
    
 }
 

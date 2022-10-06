@@ -1,9 +1,75 @@
+/* #create-item {
+/* :root {
+    --form-width: 20vw;
+} */
 
-
-#create-item {
+/* #create-item-form {
+    margin-top: 25px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     width: 20vw;
+} */ 
+
+.profileContainer{
+    border: 1px solid black;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
+
+.profileDivs {
+    /* padding: 400px;     should move it down, but needs to be inside another div. Do later */
+    background-color: #a3c0ba;
+    margin: auto;   
+    /* width: 30%; */
+    /* border: 3px solid #963a2f; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 40px;
+    border: 1px solid #718e88;
+    padding: 15px;
+    margin-top: 10%;
+    max-width: 30%;
+    
+
+.dropdown-field {
+    width: calc(var(--form-width)*0.815);
+    background-color: beige;
+}
+
+#create-item-form input {
+    width: calc(var(--form-width)*0.8);
+    height: 25px;
+    background-color: beige;
+    border-style: none;
+}
+
+.icon-button {
+    --button-size: calc(var(--form-width)*.1);
+    width: var(--button-size);
+    height: var(--button-size);
+    padding: 5px;
+    display: flex;
+}
+
+#dropdown-popup {
+    position: absolute;
+    top: 58px;
+    width: 500px;
+    transform:translateX(-45%);
+    background-color: white;
+    border: grey;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+#dropdown-item:hover {
+    background-color: #bad1b7;
+}}

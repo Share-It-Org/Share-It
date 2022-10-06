@@ -6,7 +6,7 @@ import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/ap
 
 // This sets the map size in the app. This gets passed into the GoogleMap component in the mapContainerStyle attribute
 const mapStyle = {
-    height: '100vh',
+    height: '85vh',
     width: '100%',
   }
 
@@ -17,8 +17,6 @@ const center = {
 };
 
 function MyComponent({itemLocations}) {
-
-  // This is the array of saved locations pulled from the database
 
   // This is the current selected pin on the map
   const [selected, setSelected] = useState({});
