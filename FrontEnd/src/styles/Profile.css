@@ -12,38 +12,45 @@
     width: 20vw;
 } */ 
 .flexContainer{
-    border: 1px single #d58258;
+    border: 15px single #d58258;
     display: flex;
-    flex: 1;
+    /* flex: 1; */
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items:flex-start;
 
 }
 
-#header{
-    
+.header{
+    display: flex;
+    justify-content: center;
 }
 
 .profileContainer{
     border: 2px double #963a2f;
-    display: flex;
+    /* display: flex;
     flex: 1;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    
+    column-gap: 20px;
+    row-gap: 40px;
+    padding: 15px;
 }
 
 .profileDivs {
     /* padding: 400px;     should move it down, but needs to be inside another div. Do later */
     background-color: #a3c0ba;
-    margin: auto;   
+    
+    margin: 15px;   
     /* width: 30%; */
     /* border: 3px solid #963a2f; */
-    display: grid;
     
-    column-gap: 20px;
-    row-gap: 40px;
+    /* column-gap: 20px;
+    row-gap: 40px; */
     border: 1px solid #718e88;
     padding: 15px;
     margin-top: 10%;
@@ -66,10 +73,17 @@
     color: #6d584f;
 }
 
+input[type="submit"] {
+    display: block;
+    margin : 5px auto;
+}
+
 #category{
     text-align: center;
 }
-
+#category:hover{
+    cursor: pointer;
+}
 /* #create-item-form input {
     width: calc(var(--form-width)*0.8);
     height: 25px;
