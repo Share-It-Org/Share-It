@@ -7,7 +7,6 @@ import DropdownInputField from './DropdownInputField.jsx';
 
 const CreateItemForm = () => {
     const inputRef = useRef(null);
-    const location = useLocation();
 
     const [formData, setFormData] = useState({ 
         name: '',

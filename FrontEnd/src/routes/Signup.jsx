@@ -41,7 +41,8 @@ const Signup = () => {
         .then(data => {
           if(data.status === 200){
             console.log('passed');
-            location.state = {isLoggedIn: true};
+            location.state = {username: username};
+            window.localStorage.setItem("StuffLibrary", JSON.stringify({username: formData.username}));
             navigate('/home');
           }
         })
