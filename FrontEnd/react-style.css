@@ -64,8 +64,14 @@ h1, h2, h3 {
     max-width: 30%;
 }
 
+#screen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #UI{
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     display: flex;
     flex-direction: column;
 }
@@ -74,24 +80,38 @@ h1, h2, h3 {
     margin: 10px;
     padding: 15px;
     display: inline-flex;
-    border: 2px dotted green;
+    /* border: 2px dotted green; */
 }
 
 #userInformation{
+    background-color: whitesmoke;
     width: 50%;
+    margin: 15px;
+    border: 2px solid black;
+}
+
+#searchBar{
+    background-color: whitesmoke;
+    width: 50%;
+    margin: 15px;
+    border: 2px solid black;
 }
 
 #thingDisplays{
+    /* background-color: whitesmoke; */
     margin: 10px;
     padding: 15px;
     display: inline-flex;
-    border: 2px dotted blue;
+    /* border: 2px dotted blue; */
 }
 
 #myThings{
+    background-color: whitesmoke;
     width: 50%;
     padding: 15px;
-    border: 2px dotted orange;
+    margin: 15px;
+    /* border: 2px dotted orange; */
+    border: 2px solid black;
 }
 
 /* #searchThings:hover{
@@ -99,11 +119,19 @@ h1, h2, h3 {
 } */
 
 #searchThings{
+    background-color: whitesmoke;
     width: 50%;
     padding: 15px;
-    border: 2px dotted green;
+    margin: 15px;
+    /* border: 2px dotted green; */
+    border: 2px solid black;
 }
 
 /* #searchThings:hover{
     width: 90%;
 } */
+
+.Thing {
+    border: 2px solid black;
+    margin: 5px;
+}
