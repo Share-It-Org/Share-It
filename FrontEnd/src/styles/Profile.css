@@ -1,16 +1,17 @@
 /* #create-item {
-:root {
+/* :root {
     --form-width: 20vw;
-}
+} */
 
-#create-item-form {
+/* #create-item-form {
     margin-top: 25px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     width: 20vw;
-} */
+} */ 
+
 .profileContainer{
     border: 1px solid black;
     display: flex;
@@ -71,4 +72,4 @@
 
 #dropdown-item:hover {
     background-color: #bad1b7;
-}
+}}
