@@ -1,11 +1,10 @@
-body {
-    overflow:hidden;
-}
+
 
 #splitscreen-feed {
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 100vh;
+    overflow:hidden;
 }
 
 #splitscreen-feed .card-container {
@@ -14,10 +13,33 @@ body {
 
 #splitscreen-feed #mapdiv {
     grid-column: 2;
-    height: 500px;
+    height: 1000px;
     overflow-y: visible;
+    position: relative;
+    overflow: hidden;
+    width: 80vh;
+    border: 1px solid black;
 }
 
 .card-container {
     overflow-y: scroll;
+}
+
+#slide {
+    position: absolute;
+    right: -800px;
+    width: 80vh;
+    background: blue;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: .3s;
+}
+
+@-webkit-keyframes slide {
+    100% { right: 0; }
+}
+
+@keyframes slide {
+    100% { right: 0; }
 }
