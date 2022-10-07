@@ -7,6 +7,9 @@ const router = express.Router();
 //JOE: this router works via postman, it's req.body should have name and username
 router.post(
   '/create',
+  (req, res, next) => {console.log("I'm on Item-router Create"); next();},
+  userController.getUserId,
+  databaseController.getRecords,
   itemController.createItem,
   databaseController.insertRecord,
   (req, res, next) => {
@@ -18,8 +21,7 @@ router.post(
 
 // JOE: what does this do?
 router.post('/', databaseController.createQueryData, 
-userController.getUserId, 
-databaseController.getRecords,
+userController.getUserId,
 itemController.getItems, 
 databaseController.getRecords, 
 (req, res, next) => {
@@ -34,6 +36,8 @@ router.delete('/delete', (req, res, next) => {
   
   res.status(200).send(res.locals.response.rows)
   })
+
+
 
 /*
 
