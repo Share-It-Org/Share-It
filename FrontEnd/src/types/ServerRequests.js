@@ -47,6 +47,7 @@ ServerRequests.CreateItem = (username, {
     category,
     photo 
     }) => {
+        console.log(username, name, description, leaseDuration, category, photo);
     fetch(...[
         '/api/user/items/create',
         {

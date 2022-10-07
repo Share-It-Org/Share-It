@@ -7,6 +7,7 @@ import NavigationBar from '../containers/NavigationBar.jsx';
 import CategoriesBar from '../containers/CategoriesBar.jsx';
 import MapState from '../types/MapState.js';
 import ItemModal from '../components/ItemModal.jsx';
+import  niceHammer from '../images/niceHammer.png';
 
 // this is for testing react router functionality
 export const LocationDisplay = () => {
@@ -28,25 +29,44 @@ function Homepage() {
   const location = useLocation();
   const [mapState, setMapState] = useState(MapState.Hidden);
   const username = JSON.parse(window.localStorage.getItem("StuffLibrary")).username;
+  
 
   let items = [ //fetch this list from the Server
     {
       name: "Skis",
-      description: "Two tiny snowboards for your feetsies"
+      description: "Two tiny snowboards for your feetsies",
+      img: <img id='logo' src={niceHammer}/>
     },
     {
-      name: "Snowboard",
-      description: "Like trying to swim with your arms tied together"
+      name: "Pool",
+      description: "nothing weird going on here"
     },
     {
-      name: "Ice Skates",
-      description: "Like an ice cube on a hardwood floor"
+      name: "Studio space",
+      description: "nudes okay"
     },
     {
-      name: "Snowmobile",
-      description: "Bet you a dollar you can't avoid a big stupid smile"
+      name: "Jet ski",
+      description: "I can't believe I'm actually lending this out"
+    },
+    {
+      name: "Nice Hammer",
+      description: "it will get the job done"
+    },
+    {
+      name: "Munchkin",
+      description: "fun for game night"
+    },
+    {
+      name: "trampoline",
+      description: "bouncy time fun joy"
+    },
+    {
+      name: "chainsaw",
+      description: "you too can be chainsaw main"
     }
   ]
+  
   const toggleScreenFormat = (e) => {
     mapState === MapState.Hidden ? setMapState(MapState.Peek) : setMapState(MapState.Hidden);
   }
