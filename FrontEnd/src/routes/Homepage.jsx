@@ -7,7 +7,8 @@ import NavigationBar from '../containers/NavigationBar.jsx';
 import CategoriesBar from '../containers/CategoriesBar.jsx';
 import MapState from '../types/MapState.js';
 import ItemModal from '../components/ItemModal.jsx';
-import  niceHammer from '../images/niceHammer.png';
+import ServerRequests from '../types/ServerRequests.js';
+import niceHammer from '../images/niceHammer.png';
 
 function Homepage() {
   const [cards, setCards] = useState()
@@ -64,9 +65,14 @@ function Homepage() {
   const toggleScreenFormat = (e) => {
     mapState === MapState.Hidden ? setMapState(MapState.Peek) : setMapState(MapState.Hidden);
   }
-
+  let serverItems;
   useEffect(() => {
     //fetch a list of items to display for the user from the server
+    async function fetchData() {
+      console.log("making request");
+      // serverItems = await ServerRequests.GetItems(username);
+    }
+    if(serverItems === undefined) fetchData();
     if (!cards) updateCards();
   })
 

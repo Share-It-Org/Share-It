@@ -103,10 +103,7 @@ userController.getUserId = async (req, res, next) => {
   query.setConditions(`username = '${req.body.username}'`)
 
   console.log("userController.getUserId");
-
   req.locals.queryData = query.queryData;
-
-  console.log("I got records");
   next();
 }
 
