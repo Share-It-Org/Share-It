@@ -1,8 +1,17 @@
 import React from 'react'
 
-const CategoryButton = () => {
+const CategoryButton = ({image, title, id}) => {
+    let idAttribute = '';
+    
+    if(id) {
+        idAttribute = id;
+    }
+
   return (
-    <div>CategoryButton</div>
+    <div className="category-button" id={idAttribute}>
+        <img src={image} />
+        {title}
+    </div>
   )
 }
 
