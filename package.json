@@ -21,6 +21,7 @@
   "homepage": "https://github.com/SharkGoblin/Scratch-Project#readme",
   "dependencies": {
     "@react-google-maps/api": "^2.13.1",
+    "axios": "^1.1.0",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -49,7 +50,7 @@
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
     "file-loader": "^6.2.0",
-    "file-system": "^2.2.2",
+    "file-system": "^1.2.2",
     "html-webpack-plugin": "^5.5.0",
     "nodemon": "^2.0.20",
     "regenerator-runtime": "^0.13.9",
