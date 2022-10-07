@@ -1,13 +1,16 @@
 const db = require('../Models/database-model');
 const getRecordsModel = require('../Models/get-records-model');
-import fetch from 'node-fetch';
-
+const fetch = require('node-fetch');
+// // import fetch from 'node-fetch';
+// import axios from 'axios';
+// const axios = require('axios');
 
 const locationController = {};
 
 locationController.geoCode = (req, res, next) => {
 
   const { street_address, city, state } = req.body;
+  console.log('req.body: ', req.body);
   fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${street_address},+${city},+${state}&key=AIzaSyBRacG1Uw6S2XcqqqA50dnaTRUSwiJ2Gg4`)
     .then((data) => data.json())
     .then((data) => {
@@ -17,6 +20,62 @@ locationController.geoCode = (req, res, next) => {
         const lng = data.results[0].geometry.location.lng;
         const addy = data.results[0].formatted_address;
 
+
+        // axios .get(`https://maps.googleapis.com/maps/api/geocode/json?address=${street_address},+${city},+${state}&key=AIzaSyBRacG1Uw6S2XcqqqA50dnaTRUSwiJ2Gg4`)
+        // .then((response) => {
+        //     console.log('Made the fetch');
+        //     console.log('data : ', response);
+        //     const lat = response.results[0].geometry.location.lat;
+        //     const lng = response.results[0].geometry.location.lng;
+        //     const addy = response.results[0].formatted_address;
+
+        //     res.locals.newEntry = {
+        //         street_address: street_address,
+        //         city: city,
+        //         state: state,
+        //         lat: lat,
+        //         lng: lng,
+        //         formatted_address: addy
+        //     }
+        //     next();
+
+        // }, (error) => {
+        //     console.log(error)
+        // })
+
+        // const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${street_address},+${city},+${state}&key=AIzaSyBRacG1Uw6S2XcqqqA50dnaTRUSwiJ2Gg4`;
+
+        // axios
+        //     .get(url)
+        //     .then(response => {
+        //         response.json();
+        //     })
+        //     .then(data => {
+        //         console.log('Made the fetch');
+        //         console.log('data : ', data);
+        //         const lat = data.results[0].geometry.location.lat;
+        //         const lng = data.results[0].geometry.location.lng;
+        //         const addy = data.results[0].formatted_address;
+
+        //         res.locals.newEntry = {
+        //             street_address: street_address,
+        //             city: city,
+        //             state: state,
+        //             lat: lat,
+        //             lng: lng,
+        //             formatted_address: addy
+        //     }
+        //     next();
+        //     })
+        //     .catch(error => {
+        //         console.log(error.response.data.error)
+        //         next(error);
+        //     })
+
+    //     const url = `/api/${username}`;
+    // const response = await axios.post(url, {
+    // });
+
         res.locals.newEntry = {
             street_address: street_address,
             city: city,
@@ -24,6 +83,7 @@ locationController.geoCode = (req, res, next) => {
             lat: lat,
             lng: lng,
             formatted_address: addy
+
         }
         next();
     })

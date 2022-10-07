@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post('/create', locationController.geoCode, userController.createUser, databaseController.insertRecord, (req, res, next) => {
     console.log(`user ${res.locals.result} was created succesfully`);
-    res.sendStatus(200).send('create user function');
+    res.status(200).send('create user function');
 })
 
 router.post('/login', userController.loginUserBefore, databaseController.getRecords, userController.loginUserAfter, (request, response) => {

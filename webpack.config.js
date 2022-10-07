@@ -14,8 +14,11 @@ module.exports = {
     port: 8080,
     open: true,
     hot: true,
+    // proxy: {
+    //   '/api': 'http://localhost:3000',
+    // },
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/api/**': { "target": "http://localhost:3000/", "secure": false }
     },
     static: {
       directory: path.join(__dirname, 'dist'),

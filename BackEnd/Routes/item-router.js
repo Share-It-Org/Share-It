@@ -37,6 +37,8 @@ router.delete('/delete', (req, res, next) => {
   res.status(200).send(res.locals.response.rows)
   })
 
+
+
 /*
 
 We want tests for:

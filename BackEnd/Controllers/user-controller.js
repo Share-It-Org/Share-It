@@ -18,12 +18,12 @@ userController.createUser = (req, res, next) => {
 
     // req.locals.queryData.tableName = 'users';
     // req.locals.queryData.username = req.body.username;
-    const { email, first_name, last_name, street_address, city, state, zip } = req.body;
+    const { email, street_address, city, state, zip } = req.body;
     const { lat, lng } = res.locals.newEntry;
 
     req.locals.queryData.email = email;
-    req.locals.queryData.first_name = first_name;
-    req.locals.queryData.last_name = last_name;
+    // req.locals.queryData.first_name = first_name;
+    // req.locals.queryData.last_name = last_name;
     req.locals.queryData.street_address = street_address;
     req.locals.queryData.city = city;
     req.locals.queryData.state = state;

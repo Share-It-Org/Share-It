@@ -16,8 +16,11 @@ itemController.createItem = async (req, res, next) => {
   // create a user variable and set it to the query result of passing in username to users to get user_id
   // const user_id = db.query(`SELECT _id from users ON users.username = ${username}`);
   // create a category variable and set it to the query result of passing in category to categories to get category_id
-  let category_id = await db.query(`SELECT _id from categories WHERE name = '${category}'`);
-  category_id = category_id.rows[0]._id;
+
+  // let category_id = await db.query(`SELECT _id from categories WHERE name = '${category}'`);
+  // category_id = category_id.rows[0]._id;
+  category_id = 1;
+
   console.log('category_id: ', category_id);
   const query = new insertRecordsModel();
   query.setTableName("items")
