@@ -11,43 +11,99 @@
     align-items: center;
     width: 20vw;
 } */ 
+.flexContainer{
+    border: 15px single #d58258;
+    display: flex;
+    /* flex: 1; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:flex-start;
+
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+}
 
 .profileContainer{
-    border: 1px solid black;
-    display: flex;
+    border: 2px double #963a2f;
+    /* display: flex;
     flex: 1;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    
+    column-gap: 20px;
+    row-gap: 40px;
+    padding: 15px;
 }
 
 .profileDivs {
     /* padding: 400px;     should move it down, but needs to be inside another div. Do later */
     background-color: #a3c0ba;
-    margin: auto;   
+    
+    margin: 15px;   
     /* width: 30%; */
     /* border: 3px solid #963a2f; */
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 20px;
-    row-gap: 40px;
+    
+    /* column-gap: 20px;
+    row-gap: 40px; */
     border: 1px solid #718e88;
     padding: 15px;
     margin-top: 10%;
-    max-width: 30%;
+    max-width: 40%;
+    
+}
     
 
 .dropdown-field {
+    text-align: center;
     width: calc(var(--form-width)*0.815);
-    background-color: beige;
+    background-color: #718e88;
+    margin: 3px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 10px ;
+    box-shadow:inset 0 0 5px #718e88;
+    font-family: 'Quicksand', sans-serif;
+    color: #6d584f;
 }
 
-#create-item-form input {
+input[type="submit"] {
+    display: block;
+    margin : 5px auto;
+}
+
+#category{
+    text-align: center;
+}
+#category:hover{
+    cursor: pointer;
+}
+/* #create-item-form input {
     width: calc(var(--form-width)*0.8);
     height: 25px;
     background-color: beige;
     border-style: none;
+} */
+
+.inputField {
+    text-align: center;
+    margin: 3px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 10px ;
+    box-shadow:inset 0 0 5px #718e88;
+    background: transparent;
+    font-family: 'Quicksand', sans-serif;
+    color: #6d584f;
 }
+
 
 .icon-button {
     --button-size: calc(var(--form-width)*.1);
@@ -71,5 +127,6 @@
 }
 
 #dropdown-item:hover {
+    cursor: pointer;
     background-color: #bad1b7;
-}}
+}

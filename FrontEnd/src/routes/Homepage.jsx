@@ -4,16 +4,24 @@ import Card from '../components/Card.jsx';
 import MainFeed from '../components/MainFeed.jsx';
 import { useLocation } from 'react-router-dom';
 import NavigationBar from '../containers/NavigationBar.jsx';
-import CategoriesBar from '../components/CategoriesBar.jsx';
+import CategoriesBar from '../containers/CategoriesBar.jsx';
 import MapState from '../types/MapState.js';
 import ItemModal from '../components/ItemModal.jsx';
 
 function Homepage() {
   const [cards, setCards] = useState()
-  const [isOpen, setIsOpen] = useState(false);
+  const [itemModalDetails, setItemModal] = useState({
+    name: '',
+    description: '',
+    leaseDuration: '',
+    category: '',
+    photo: '',
+    isOpen: '',
+  });
   let routes = [];
   const location = useLocation();
   const [mapState, setMapState] = useState(MapState.Hidden);
+  const username = JSON.parse(window.localStorage.getItem("StuffLibrary")).username;
 
   let items = [ //fetch this list from the Server
     {
@@ -47,23 +55,24 @@ function Homepage() {
     let cardsCache = [];
     for(let itemId = 0; itemId < items.length; itemId++) {
       cardsCache.push(
-      <Link to={`/home/${itemId}`} state={items[itemId]}>
-        <Card name={items[itemId].name} />
-      </Link>)
-    }
+        <Card details={items[itemId]} toggleModal={toggleModal}/>
+      )}
     setCards(cardsCache);
+  }
+
+  const toggleModal = (e, itemDetails) => {
+    console.log(itemDetails);
+    setItemModal({...itemDetails, isOpen: !itemModalDetails.isOpen})
   }
 
   return (
     <div>
+      <h1>Welcome {username}!</h1>
         <NavigationBar />
         <CategoriesBar />
-        <button className="modalButton" onClick={() => setIsOpen(true)}>
-        Open Modal
-      </button>
         <MainFeed cards={cards} mapState={mapState} />
         <input type="button" value="View Map" onClick={toggleScreenFormat} />
-      {isOpen && <ItemModal setIsOpen={setIsOpen} />} 
+      {itemModalDetails.isOpen && <ItemModal setIsOpen={setItemModal} details={itemModalDetails}/>} 
     </div>
   );
 }

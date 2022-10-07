@@ -41,7 +41,8 @@ const Signup = () => {
         .then(data => {
           if(data.status === 200){
             console.log('passed');
-            location.state = {isLoggedIn: true};
+            location.state = {username: username};
+            window.localStorage.setItem("StuffLibrary", JSON.stringify({username: formData.username}));
             navigate('/home');
           }
         })
@@ -49,14 +50,15 @@ const Signup = () => {
 
     return (
     <div id='signUpBox' className='centerMe'>
-        <h2>Create an account</h2>
+        <h2>create an account</h2>
         <input type="text" id="firstName" name="firstName" placeholder="name" onChange={(e) => formData.username = e.target.value}></input>
         <br></br>
         <input type="password" id="password" name="password" placeholder="password" onChange={(e) => formData.password= e.target.value}></input>
         <br></br>
         <input type="text" id="email" name="email" placeholder="e-mail" onChange={(e) => formData.email = e.target.value}></input>
         <br></br>
-        <div id="signup__address-box">Address Info:
+        <div id="signup__address-box">
+          <h3>address info</h3>
           <div className="inputContainer" > 
                   <input
                   type="text"

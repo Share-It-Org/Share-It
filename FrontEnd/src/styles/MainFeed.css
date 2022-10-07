@@ -1,3 +1,5 @@
+ 
+
 #splitscreen-feed {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -11,10 +13,36 @@
 
 #splitscreen-feed #mapdiv {
     grid-column: 2;
-    height: 500px;
-    overflow-y: visible;
+    margin-top: -175px;
+    height: 60vh;
+    margin-left: 20px;
+    margin-right: 20px;
+    align-self: center;
+    position: relative;
+    overflow: hidden;
+    width: 70vh;
+    border: 1px solid black;
 }
 
 .card-container {
     overflow-y: scroll;
+}
+
+#slide {
+    position: absolute;
+    right: -800px;
+    width: 80vh;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: .15s;
+    animation-duration: 200ms;
+}
+
+@-webkit-keyframes slide {
+    100% { right: 0; }
+}
+
+@keyframes slide {
+    100% { right: 0; }
 }

@@ -5,7 +5,9 @@ import '../styles/Profile.css';
 
 const Profile = () => {
    return (
-    <CreateItemForm />
+    <div className='profileContainer'>
+      <CreateItemForm />
+    </div>
   )
 }
 
