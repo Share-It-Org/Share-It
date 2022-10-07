@@ -7,6 +7,7 @@ import NavigationBar from '../containers/NavigationBar.jsx';
 import CategoriesBar from '../containers/CategoriesBar.jsx';
 import MapState from '../types/MapState.js';
 import ItemModal from '../components/ItemModal.jsx';
+import  niceHammer from '../images/niceHammer.png';
 
 function Homepage() {
   const [cards, setCards] = useState()
@@ -22,11 +23,13 @@ function Homepage() {
   const location = useLocation();
   const [mapState, setMapState] = useState(MapState.Hidden);
   const username = JSON.parse(window.localStorage.getItem("StuffLibrary")).username;
+  
 
   let items = [ //fetch this list from the Server
     {
       name: "Skis",
-      description: "Two tiny snowboards for your feetsies"
+      description: "Two tiny snowboards for your feetsies",
+      img: <img id='logo' src={niceHammer}/>
     },
     {
       name: "Snowboard",
