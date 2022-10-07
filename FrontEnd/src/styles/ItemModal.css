@@ -21,7 +21,7 @@
   .modal {
     width: 600px;
     height: 408px;
-    background: white;
+    background: #d1cfc0;
     color: white;
     z-index: 10;
     border-radius: 16px;
@@ -30,7 +30,7 @@
   
   .modalHeader {
     height: 100px;
-    background: white;
+    background: #c2c2b4;
     overflow: hidden;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;

@@ -32,18 +32,35 @@ function Homepage() {
       img: <img id='logo' src={niceHammer}/>
     },
     {
-      name: "Snowboard",
-      description: "Like trying to swim with your arms tied together"
+      name: "Pool",
+      description: "nothing weird going on here"
     },
     {
-      name: "Ice Skates",
-      description: "Like an ice cube on a hardwood floor"
+      name: "Studio space",
+      description: "nudes okay"
     },
     {
-      name: "Snowmobile",
-      description: "Bet you a dollar you can't avoid a big stupid smile"
+      name: "Jet ski",
+      description: "I can't believe I'm actually lending this out"
+    },
+    {
+      name: "Nice Hammer",
+      description: "it will get the job done"
+    },
+    {
+      name: "Munchkin",
+      description: "fun for game night"
+    },
+    {
+      name: "trampoline",
+      description: "bouncy time fun joy"
+    },
+    {
+      name: "chainsaw",
+      description: "you too can be chainsaw main"
     }
   ]
+  
   const toggleScreenFormat = (e) => {
     mapState === MapState.Hidden ? setMapState(MapState.Peek) : setMapState(MapState.Hidden);
   }
