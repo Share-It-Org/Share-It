@@ -70,10 +70,9 @@ function Homepage() {
     //fetch a list of items to display for the user from the server
     async function fetchData() {
       console.log("making request");
-      serverItems = await ServerRequests.GetItems(username);
+      // serverItems = await ServerRequests.GetItems(username);
     }
     if(serverItems === undefined) fetchData();
-    console.log(serverItems);
     if (!cards) updateCards();
   })
 
