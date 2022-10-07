@@ -32,7 +32,7 @@ const CreateItemForm = () => {
   
     const handleSubmit = (e) => {
       console.log(formData);
-      ServerRequests.CreateItem('drew', formData)
+      ServerRequests.CreateItem(JSON.parse(window.localStorage.getItem("StuffLibrary")).username, formData)
     }
   
     //Focus on first input field upon mounting

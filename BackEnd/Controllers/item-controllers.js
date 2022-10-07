@@ -51,14 +51,16 @@ itemController.createItem = async (req, res, next) => {
 };
 
 itemController.getItems = (req, res, next) => {
-    console.log(res.locals.response.rows[0]._id);
+  console.log("itemController.getItems");
+  console.log("userID:" + res.locals.response.rows[0]._id);
+
+    console.log(res.locals.response);
 
     const query = new getRecordsModel();
     query.setTableName("items");
-    query.setConditions(`owner_id = ${res.locals.response.rows[0]._id}`)
+    query.setConditions(`owner = ${res.locals.response.rows[0]._id}`)
 
     req.locals.queryData = query.queryData;
-    console.log("HELLO FROM GET ITEMS");
     console.log(req.locals.queryData);
     next();
     // const query = new getRecordsModel();

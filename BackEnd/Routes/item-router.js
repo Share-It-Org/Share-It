@@ -22,8 +22,9 @@ router.post(
 // JOE: what does this do?
 router.post('/', databaseController.createQueryData, 
 userController.getUserId,
+databaseController.getRecords,
 itemController.getItems, 
-databaseController.getRecords, 
+// databaseController.getRecords, 
 (req, res, next) => {
     //Handle Create Item Response Here
     res.status(200).send(res.locals.response.rows)
