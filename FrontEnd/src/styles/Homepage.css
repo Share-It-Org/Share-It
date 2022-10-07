@@ -17,6 +17,8 @@
   }
 
   #categories-bar {
+    overflow-x: auto;
+    border: 2px solid #d3ab9b;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -30,6 +32,7 @@
   }
 
   #categories-bar img {
+    
     width: 32px;
   }
 
