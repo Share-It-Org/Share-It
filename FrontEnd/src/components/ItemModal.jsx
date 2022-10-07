@@ -18,6 +18,7 @@ const itemModal = ({ setIsOpen, details }) => {
             <div className="label" id="description">Description</div><div>{details.description}</div><br />
             <div className="label" id="location">Location</div><div>{details.location}</div><br />
             <div className="label" id="rating">Duration:</div><div>{details.leaseDuration}</div><br />
+            <div className="label" id="rating">Photo:</div><div>{details.photo}</div><br />
           </div>
           <div className="modalActions">
             <div className="actionsContainer">
