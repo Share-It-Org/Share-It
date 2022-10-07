@@ -24,13 +24,8 @@ const MainFeed = ({cards, mapState}) => {
       <div className="card-container" data-test='card-container'>
         <CardContainer cards={cards} />
       </div>
-<<<<<<< HEAD
       <div id="mapdiv" className='map' data-test='map-container'>
         <div id="slides" >
-=======
-      <div id="mapdiv" className='map'>
-        <div id="slide" >
->>>>>>> dev
           <Map itemLocations={itemLocations} /> 
         </div>
       </div>

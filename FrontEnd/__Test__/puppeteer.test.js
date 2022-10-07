@@ -89,7 +89,7 @@ describe('Front-end Integration/Features', () => {
         });
 
         it('displays a map if show map button is clicked', async () => {
-            await page.goto(APP/homepage);
+            await page.goto(APP/home);
             await page.waitForSelector('[data-test=map-button]', { visible: true });
             await Promise.all([
               page.click('[data-test=map-button]'),
@@ -103,7 +103,7 @@ describe('Front-end Integration/Features', () => {
 
           // refacotr after desciding about modals
           it('displays an item\'s details page if item card is clicked', async () => {
-            await page.goto(APP/homepage);
+            await page.goto(APP/home);
             await page.waitForSelector('#itemId');
             await Promise.all([
               page.click('#itemId'),
@@ -115,7 +115,7 @@ describe('Front-end Integration/Features', () => {
           });
 
           it('add rented items to account inventory and redirects to perosnal invemtory', async () => {
-            await page.goto(APP/itemCard/2);
+            await page.goto(APP/2);
             await page.waitForSelector('#rentButton');
             await Promise.all([
               page.click('#rentButton'),
