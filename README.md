@@ -13,23 +13,24 @@ This open source repository contains the code for ShareIt: A community-based sha
 
 Login Page: 
 
-  ![](./Frontend/Images/login_screenshot.png)
+  ![Screenshot of Login Page](./Frontend/Images/login_screenshot.png)
 
 Homepage Page: 
 - conditional rendering of interactive map
 
-  ![](./Frontend/Images/homepage_screenshot.png)
+  ![Screenshot of Homepage without map](./Frontend/Images/homepage_screenshot.png)
+    ![Screenshot of Homepage with map](./Frontend/Images/homepage_map_screenshot.png)
 
 Profile Page:
 - view items you are borrowing
 - view items you are lending
 - request back items you are lending
 
-  ![](./Frontend/Images/profile_screenshot.png)
+  ![Screenshot of User Profile Page](./Frontend/Images/profile_screenshot.png)
 
 Item Description Modal: 
 
-  ![](./Frontend/Images/itempage_screenshot.png)
+  ![Screenshot of Item Description Page](./Frontend/Images/itempage_screenshot.png)
 
 ## Techstack:
 - React
