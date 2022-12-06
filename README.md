@@ -13,39 +13,23 @@ This open source repository contains the code for ShareIt: A community-based sha
 
 Login Page: 
 
-<img
-  src="/Frontend/Images/login_screenshot.png"
-  alt="Alt text"
-  title="Optional title"
-  style="display: inline-block; margin: 0 auto; max-width: 300px">
+  ![](./Frontend/Images/login_screenshot.png)
 
 Homepage Page: 
 - conditional rendering of interactive map
 
-  <img
-  src="/Frontend/Images/homepage_screenshot.png"
-  alt="Alt text"
-  title="Optional title"
-  style="display: inline-block; margin: 0 auto; max-width: 300px">
+  ![](./Frontend/Images/homepage_screenshot.png)
 
 Profile Page:
 - view items you are borrowing
 - view items you are lending
 - request back items you are lending
 
-  <img
-  src="/Frontend/Images/profile_screenshot.png"
-  alt="Alt text"
-  title="Optional title"
-  style="display: inline-block; margin: 0 auto; max-width: 300px">
+  ![](./Frontend/Images/profile_screenshot.png)
 
 Item Description Modal: 
 
-  <img
-  src="/Frontend/Images/itempage_screenshot.png"
-  alt="Alt text"
-  title="Optional title"
-  style="display: inline-block; margin: 0 auto; max-width: 300px">
+  ![](./Frontend/Images/itempage_screenshot.png)
 
 ## Techstack:
 - React
@@ -59,7 +43,7 @@ The React framework provides the potential to:
 - require minimal configuration for testing
 
 Why Express?
-Express is a great framworks for apps with the potential to: 
+Express is a great framework for apps with the potential to: 
 - scale up and handle multiple user requests on the app 
 - require real-time reactivity by leveraging the non-blocking Express servers
 - allow millions of users to upload images and access images
