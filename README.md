@@ -48,4 +48,3 @@ Express is a great framework for apps with the potential to:
 - scale up and handle multiple user requests on the app 
 - require real-time reactivity by leveraging the non-blocking Express servers
 - allow millions of users to upload images and access images
-
