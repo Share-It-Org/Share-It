@@ -3,3 +3,5 @@ Secret/
 BackEnd/.DS_Store
 .DS_Store
 .vscode/*
+.gitignore
+.env
