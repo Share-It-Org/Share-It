@@ -86,6 +86,7 @@ databaseController.getRecords = async(req, res, next) => {
     }
     query = query.slice(0,-4);
     query += ';';
+    console.log("dbcontroller.getRecords: query is " + query);
     const response = await db.query(query);
     res.locals.response = response;
     return next();

@@ -1,0 +1,40 @@
+#navigation-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin: 0px 20px 0px 20px;
+}
+
+#navigation-logo {
+    width: 50px;
+    height: 50px;
+}
+
+#search-bar {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background: #EFEFEF;
+    border-radius: 1.5vmax;
+    flex-basis: 45%;
+    height: 3.6vh;
+    margin-top: 10px;
+  }
+
+  #search-bar input {
+    border: hidden;
+    margin-left: 10px;
+    background: #EFEFEF;
+    flex-basis: 45%;
+    height: 2vh;
+    justify-self: center;
+    font-size: 2vmin;
+  }
+
+  #search-bar input:focus {
+    outline-width: 0;
+  }
+
+  #profile-box {
+    margin-top: 10px;
+  }

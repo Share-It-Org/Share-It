@@ -2,9 +2,9 @@
   "name": "scratch-project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
-    "start": "concurrently \"webpack-dev-server --mode development --hot --progress --color\" \"nodemon BackEnd/server.js\"",
+    "start": "concurrently \"webpack-dev-server --hot --mode development --progress --color\" \"nodemon BackEnd/server.js\"",
     "server": "nodemon BackEnd/server.js",
     "client": "webpack-dev-server --mode development --hot --progress --color",
     "build": "webpack --mode production"
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/SharkGoblin/Scratch-Project#readme",
   "dependencies": {
     "@react-google-maps/api": "^2.13.1",
+    "axios": "^1.1.0",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -31,7 +32,7 @@
     "puppeteer": "^18.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.4.1"
+    "react-router-dom": "^6.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
@@ -43,10 +44,13 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "eslint": "^8.24.0",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "file-loader": "^6.2.0",
+    "file-system": "^1.2.2",
     "html-webpack-plugin": "^5.5.0",
     "nodemon": "^2.0.20",
     "regenerator-runtime": "^0.13.9",

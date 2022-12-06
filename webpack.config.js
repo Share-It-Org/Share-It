@@ -2,29 +2,39 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './FrontEnd/React-index.jsx',
+  entry: './FrontEnd/src/index.js',
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
+  mode: "development",
   devServer: {
     host: 'localhost',
     port: 8080,
     open: true,
     hot: true,
+    // proxy: {
+    //   '/api': 'http://localhost:3000',
+    // },
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/api/**': { "target": "http://localhost:3000/", "secure": false }
     },
     static: {
       directory: path.join(__dirname, 'dist'),
       publicPath: '/dist',
     },
+    historyApiFallback: true, //this routes us to index.html whenever we 404
   },
   plugins: [
     new HTMLWebpackPlugin({
       template: './FrontEnd/react-index.html',
     }),
   ],
+  resolve: {
+    // Enable importing JS / JSX files without specifying their extension
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     rules: [
       {
